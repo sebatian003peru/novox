@@ -26,15 +26,6 @@ public class ScoreManagerSc : MonoBehaviour {
 
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.W)) 
-		{
-			ScoreCount = 0f;
-		}
-		if (Input.GetKey (KeyCode.Q)) 
-		{
-			ScoreCount += 0.2f;
-		}
-
 		if (ScoreCount >= HighScoreCount) 
 		{
 			HighScoreCount = ScoreCount;

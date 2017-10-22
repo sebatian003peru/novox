@@ -24,7 +24,7 @@ public class RotationCube : MonoBehaviour {
             timeStop++;
         }
 
-        if(termina >=10f)
+        if(termina >=110f)
         {
             rote=false;
             numberRandom=-1;
@@ -79,7 +79,7 @@ public class RotationCube : MonoBehaviour {
         if(rote==true)
         {
             transform.Rotate (Vector3.up,Speed * Time.deltaTime);
-            Speed +=0.15f;
+            Speed +=0.01f;
             termina +=0.35f;
         }
     }
@@ -88,7 +88,7 @@ public class RotationCube : MonoBehaviour {
         if(rote==true)
         {
             transform.Rotate (Vector3.down,Speed * Time.deltaTime);
-            Speed +=0.15f;
+            Speed +=0.01f;
             termina +=0.35f;
         }
     }
@@ -97,7 +97,7 @@ public class RotationCube : MonoBehaviour {
         if(rote==true)
         {
             transform.Rotate (Vector3.right,Speed * Time.deltaTime);
-            Speed +=0.15f;
+            Speed +=0.01f;
             termina +=0.35f;
         }
     }
@@ -106,7 +106,7 @@ public class RotationCube : MonoBehaviour {
         if(rote==true)
         {
             transform.Rotate (Vector3.left,Speed * Time.deltaTime);
-            Speed +=0.15f;
+            Speed +=0.01f;
             termina +=0.35f;
         }
     }

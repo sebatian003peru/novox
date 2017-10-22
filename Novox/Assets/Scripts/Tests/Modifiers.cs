@@ -24,20 +24,21 @@ public void SwipeDetector(float Fspeed, float NoSpeed, float MaxSpeed, float mov
         this.delay = delay;
 }
 
- void chooseEffectid(){ // Metodo para lanzar un id aleatorio entre los 4 casos
-
-ID = Random.Range(1,4);
-
+ void chooseEffectid()
+ { 
+     ID = Random.Range(1,4);
  }
 
- void DefaultMovement(){ // Variables default del movimiento del jugador
+ void DefaultMovement()
+ {
      Fspeed=3f;
      moveForce=1.5f;
  }
 
- private void ChooseEffect(){ // casos o cambios de estado del jugador
-
-     switch(ID){
+ private void ChooseEffect()
+ {
+     switch(ID)
+     {
 
          case 1: //Rojo: La pelota es mas pesada
 
@@ -81,51 +82,41 @@ ID = Random.Range(1,4);
 
          //(FALTA LA LLAMAR A LA VARIABLE DE COLOR DEL CUBO Y REALIZAR EL CAMBIO RESPECTIVO SEGUN EL CASO)
      }
- }
-
- void Update(){
-
-if (ActivatedCooldown){ // Cooldown es el periodo que representa el intermedio entre dos cambios. Es decir que cuando este acabe ocurrira un cambio
-
-Cooldown=- Time.deltaTime;
-DefaultMovement();
 }
- 
- else if (!ActivatedCooldown)
+
+ void Update()
  {
-  Cooldown =  0;  
- }
-
-
-if (Cooldown == 0){  // Al acabar el cooldown se llama al metodo para elegir un id aleatorio y se inicia el contador que determina la duracion del cambio
-
-         chooseEffectid();
-         ActivatedCooldown = false;
-         ActivatedEffect = true;
- }
-
-if (ActivatedEffect){
-
-    Duration=- Time.deltaTime;
-    ChooseEffect();
-}
-
-else if (!ActivatedEffect){ 
-    Duration = 0;
+    if (ActivatedCooldown)
+    { // Cooldown es el periodo que representa el intermedio entre dos cambios. Es decir que cuando este acabe ocurrira un cambio
+        Cooldown=- Time.deltaTime;
+        DefaultMovement();
+    }
+    else if (!ActivatedCooldown)
+    {
+         Cooldown =  0;
+    }
     
-}
+    if (Cooldown == 0)
+    {  // Al acabar el cooldown se llama al metodo para elegir un id aleatorio y se inicia el contador que determina la duracion del cambio
+        chooseEffectid();
+        ActivatedCooldown = false;
+        ActivatedEffect = true;
+    }
+    if (ActivatedEffect)
+    {
+        Duration=- Time.deltaTime;
+        ChooseEffect();
+    }
+    else if (!ActivatedEffect)
+    { 
+        Duration = 0;   
+    }
 
-if (Duration==0){
-    ActivatedEffect=false;
-    ActivatedCooldown = true;
-    DefaultMovement();
-
-}
- 
- }
-
-
- 
-
-
+    if (Duration==0)
+    {
+        ActivatedEffect=false;
+        ActivatedCooldown = true;
+        DefaultMovement();
+    }
+    }
 }
