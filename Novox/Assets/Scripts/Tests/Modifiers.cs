@@ -7,18 +7,18 @@ public class Modifiers : PlayerMove {
 public GameObject Cube;
 Material CubeRD;
 public int Selected;
-public float Cooldown; 
-public float Duration;  
+private float Cooldown; 
+private float Duration;  
 public float DifficultTimer;
-public float x = 60;
-public float y = 60;
+public float x = 5;
+public float y = 5;
 public bool ActivatedCooldown;
 public bool ActivatedEffect; 
 
 public void Start ()
 {
-    y = 60;
-    x = 60;
+    Cooldown=5f;
+    Duration=5f;
     ActivatedCooldown=true;
     ActivatedEffect = false;
     Cube= GameObject.FindGameObjectWithTag("Cube");
@@ -103,6 +103,8 @@ void YellowEffect()
 
 void BlueEffect()
 {
+    CubeRD.color = Color.blue;
+    Debug.Log("Blue Effect triggered");
 
 }
 
@@ -119,6 +121,7 @@ void Update()
     if (Cooldown <= 0)
     {  // Al acabar el cooldown se llama al metodo para elegir un id aleatorio y se inicia el contador que determina la duracion del cambio
         chooseEffectid();
+        x-= 0.5f;
         ActivatedCooldown = false;
         ActivatedEffect = true;
     }
@@ -134,25 +137,14 @@ void Update()
 
     if (Duration<=0)
     {
-        ActivatedEffect=false;
-        ActivatedCooldown = true;
         DefaultMovement();
+        y+=0.5f;
+        ActivatedCooldown = true;
+        ActivatedEffect=false;
         Debug.Log("Normal");
     }
                         
-    DifficultTimer += Time.deltaTime;
-
-    if (DifficultTimer >= 20)
-    {
-        x-= 0.5f;
-        y+=0.5f;
-        Reset();
-    }
-}
-
-void Reset()
-{
-    DifficultTimer = 0;
+    
 }
 void chooseEffectid()
 { // Metodo para lanzar un id aleatorio entre los 4 casos
