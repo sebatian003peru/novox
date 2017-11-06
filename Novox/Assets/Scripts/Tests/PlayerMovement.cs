@@ -62,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if(obj.gameObject.tag=="AreaScore")
 		{
-			Debug.Log ("adentro");
 			rb.useGravity = false;
 			SCM.ScoreCount += 0.01f;
 		}
@@ -72,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if(obj.gameObject.tag=="AreaScore")
 		{
-			Debug.Log ("fuera");
 			rb.useGravity = true;
 		}
 	}
