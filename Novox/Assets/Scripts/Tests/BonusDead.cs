@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class BonusDead : MonoBehaviour {
 
+	private GameObject maestro;
 	private ScoreManagerSc SCM;
-	public float dead;
+	private float dead;
 
 	void Start () 
 	{
+		maestro=GameObject.FindGameObjectWithTag ("CubeTag");
 		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
+		transform.SetParent(maestro.transform);
 	}
 
 	void Update () 
