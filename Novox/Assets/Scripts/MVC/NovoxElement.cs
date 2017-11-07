@@ -8,8 +8,6 @@ public class NovoxElement : MonoBehaviour {
    // Gives access to the application and all instances.
    public NovoxApplication app { get { return GameObject.FindObjectOfType<NovoxApplication>(); }}
 
-
-// 10 Bounces Entry Point.
 public class NovoxApplication : MonoBehaviour
 {
    // Reference to the root instances of the MVC.

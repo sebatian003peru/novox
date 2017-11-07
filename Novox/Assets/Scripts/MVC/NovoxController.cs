@@ -20,36 +20,37 @@ public class NovoxController : NovoxElement {
         }
         if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.x < 0 )
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.down * app.model.MaxSpeed);  //Move Down  
+            app.model.PlayerRb.GetComponent<Rigidbody>().AddForce(Vector3.down * app.model.MaxSpeed);  //Move Down  
             app.model.Active = false;    
 			Debug.Log("Swipe Left");
 		}
 		if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.x > 0) 
         {
-			GetComponent<Rigidbody>().AddForce(Vector3.right * app.model.MaxSpeed);  //Move Right
+			app.model.PlayerRb.GetComponent<Rigidbody>().AddForce(Vector3.right * app.model.MaxSpeed);  //Move Right
             app.model.Active = false;
 			Debug.Log("Swipe Right");
 		}
         if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.y <  0) 
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.down * app.model.MaxSpeed);  //Move Down  
+            app.model.PlayerRb.GetComponent<Rigidbody>().AddForce(Vector3.down * app.model.MaxSpeed);  //Move Down  
             app.model.Active = false;    
 			Debug.Log("Swipe Down");
 		}
         if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.y > 0) 
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * app.model.MaxSpeed); //Move Up
+            app.model.PlayerRb.GetComponent<Rigidbody>().AddForce(Vector3.up * app.model.MaxSpeed); //Move Up
             app.model.Active = false;
 			Debug.Log("Swipe Up");
 		}
-    }
 
-	   public void IcePhysics() //Ice Physics
+    }
+    ///
+	public void IcePhysics() //Ice Physics
     {
-        GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, app.model.MaxSpeed);
-        GetComponent<Rigidbody>().AddForce(app.model.vi.normalized * app.model.moveForce, ForceMode.Impulse);
+        app.model.PlayerRb.GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, app.model.MaxSpeed);
+        app.model.PlayerRb.GetComponent<Rigidbody>().AddForce(app.model.vi.normalized * app.model.moveForce, ForceMode.Impulse);
     }
-
+    ///
 	public void PlayerMove(float fspeed, float noSpeed, float maxSpeed, float MoveF, float delayed) 
     { // Constructor para poder modificar las variables en los casos del switch
     fspeed = app.model.Fspeed;
@@ -197,11 +198,12 @@ public class NovoxController : NovoxElement {
 
     public void Suction()
 	{
+        app.model.PlayerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
 		if (app.model.inside == true) 
-         {
-         Vector3 direction = transform.position - app.model.attractedTo.transform.position;
-         app.model.PlayerRb.AddForce (app.model.strengthOfAttraction * direction);
-         }
+        {
+        Vector3 direction = transform.position - app.model.attractedTo.transform.position;
+        app.model.PlayerRb.AddForce (app.model.strengthOfAttraction * direction);
+        }
     }
      
     public void DetectInside ()
