@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class ModifiersView : NovoxElement {
     
-    void Update(){app.controller.ModifiersAct(); }
+    void Update()
+    {
+        app.controller.ModifiersAct(); 
+    }
 }

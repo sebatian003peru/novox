@@ -20,25 +20,25 @@ public class NovoxController : NovoxElement {
         }
         if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.x < 0 )
         {
-            app.model.PlayerRb.GetComponent<Rigidbody>().AddForce(Vector3.down * app.model.MaxSpeed);  //Move Down  
+            GetComponent<Rigidbody>().AddForce(Vector3.down * app.model.MaxSpeed);  //Move Down  
             app.model.Active = false;    
 			Debug.Log("Swipe Left");
 		}
 		if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.x > 0) 
         {
-			app.model.PlayerRb.GetComponent<Rigidbody>().AddForce(Vector3.right * app.model.MaxSpeed);  //Move Right
+			GetComponent<Rigidbody>().AddForce(Vector3.right * app.model.MaxSpeed);  //Move Right
             app.model.Active = false;
 			Debug.Log("Swipe Right");
 		}
         if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.y <  0) 
         {
-            app.model.PlayerRb.GetComponent<Rigidbody>().AddForce(Vector3.down * app.model.MaxSpeed);  //Move Down  
+            GetComponent<Rigidbody>().AddForce(Vector3.down * app.model.MaxSpeed);  //Move Down  
             app.model.Active = false;    
 			Debug.Log("Swipe Down");
 		}
         if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.y > 0) 
         {
-            app.model.PlayerRb.GetComponent<Rigidbody>().AddForce(Vector3.up * app.model.MaxSpeed); //Move Up
+            GetComponent<Rigidbody>().AddForce(Vector3.up * app.model.MaxSpeed); //Move Up
             app.model.Active = false;
 			Debug.Log("Swipe Up");
 		}
@@ -47,73 +47,73 @@ public class NovoxController : NovoxElement {
     ///
 	public void IcePhysics() //Ice Physics
     {
-        app.model.PlayerRb.GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, app.model.MaxSpeed);
-        app.model.PlayerRb.GetComponent<Rigidbody>().AddForce(app.model.vi.normalized * app.model.moveForce, ForceMode.Impulse);
+        GetComponent<Rigidbody>().velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, app.model.MaxSpeed);
+        GetComponent<Rigidbody>().AddForce(app.model.vi.normalized * app.model.moveForce, ForceMode.Impulse);
     }
     ///
 	public void PlayerMove(float fspeed, float noSpeed, float maxSpeed, float MoveF, float delayed) 
     { // Constructor para poder modificar las variables en los casos del switch
-    fspeed = app.model.Fspeed;
-    noSpeed = app.model.NoSpeed;
-    maxSpeed= app.model.MaxSpeed;
-    MoveF= app.model.moveForce;
-    delayed = app.model.delay;
+        fspeed = app.model.Fspeed;
+        noSpeed = app.model.NoSpeed;
+        maxSpeed= app.model.MaxSpeed;
+        MoveF= app.model.moveForce;
+        delayed = app.model.delay;
     }
 
 // Modifiers Components
 
 	void DefaultMovement()
     { // Variables default del movimiento del jugador
-    app.model.Fspeed=4;
-    app.model.NoSpeed=4;
-    app.model.MaxSpeed=4;
-    app.model.moveForce =4;
-    app.model.delay=1;
-    app.model.CubeRD.color = Color.white;     
+        app.model.Fspeed=4;
+        app.model.NoSpeed=4;
+        app.model.MaxSpeed=4;
+        app.model.moveForce =4;
+        app.model.delay=1;
+        app.model.CubeRD.color = Color.white;     
     }
 
 	void RedEffect()
     {
-    app.model.Fspeed=2;
-    app.model.NoSpeed=2;
-    app.model.MaxSpeed=2;
-    app.model.moveForce =2;
-    app.model.delay=1;
-    app.model.CubeRD.color = Color.red;
-    Debug.Log("Red Effect triggered");
+        app.model.Fspeed=2;
+        app.model.NoSpeed=2;
+        app.model.MaxSpeed=2;
+        app.model.moveForce =2;
+        app.model.delay=1;
+        app.model.CubeRD.color = Color.red;
+        Debug.Log("Red Effect triggered");
     }
 
     void GreenEffect()
     {
-    app.model.Fspeed=6;
-    app.model.NoSpeed=6;
-    app.model.MaxSpeed=6;
-    app.model.moveForce =6;
-    app.model.delay=1;
-    app.model.CubeRD.color = Color.green;
-    Debug.Log("Green Effect triggered");
+        app.model.Fspeed=6;
+        app.model.NoSpeed=6;
+        app.model.MaxSpeed=6;
+        app.model.moveForce =6;
+        app.model.delay=1;
+        app.model.CubeRD.color = Color.green;
+        Debug.Log("Green Effect triggered");
     }
 
     void YellowEffect()
     {
-    app.model.Fspeed= 4;
-    app.model.NoSpeed= 4;
-    app.model.MaxSpeed= 4;
-    app.model.moveForce = 4;
-    app.model.delay=2;
-    app.model.CubeRD.color = Color.yellow;
-    Debug.Log("Yellow Effect triggered");
+        app.model.Fspeed= 4;
+        app.model.NoSpeed= 4;
+        app.model.MaxSpeed= 4;
+        app.model.moveForce = 4;
+        app.model.delay=2;
+        app.model.CubeRD.color = Color.yellow;
+        Debug.Log("Yellow Effect triggered");
     }
 
     void BlueEffect()
     {
-    app.model.CubeRD.color = Color.blue;
-    Debug.Log("Blue Effect triggered");
+        app.model.CubeRD.color = Color.blue;
+        Debug.Log("Blue Effect triggered");
     }
 
 	void chooseEffectid()
     { // Metodo para lanzar un id aleatorio entre los 4 casos
-    app.model.Selected = Random.Range(1,5);
+        app.model.Selected = Random.Range(1,5);
     }
 
 	public void ChooseEffect(){ // casos o cambios de estado del jugador
@@ -193,7 +193,6 @@ public class NovoxController : NovoxElement {
 	{
 		app.model.attractedTo = GameObject.FindGameObjectWithTag("Player");
         app.model.PlayerRb= app.model.attractedTo.GetComponent<Rigidbody>();
-
 	}
 
     public void Suction()
