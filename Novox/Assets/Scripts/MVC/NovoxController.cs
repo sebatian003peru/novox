@@ -206,19 +206,19 @@ public class NovoxController : NovoxElement {
     }
      
     public void DetectInside ()
-    {      
-     if (app.model.col.gameObject.tag =="Player")
-	  {  
-      app.model.inside =true;
-      }    
+    {
+        if (app.model.col.gameObject.tag =="Player")
+        {
+            app.model.inside =true;
+        }    
     }
 
     public void DetectExitInside (){
 	{
     if (app.model.col.gameObject.tag =="Player") 
             {          
-			app.model.inside =false;
-             }
+			    app.model.inside =false;
+            }
          }
 
 	}

@@ -10,7 +10,7 @@ public class RotationCube : MonoBehaviour {
 
     void Start()
     {
-        Speed = 35f;
+        Speed = 10f;
         numberRandom = -1;
         rote=false;
         termina = 0f;
