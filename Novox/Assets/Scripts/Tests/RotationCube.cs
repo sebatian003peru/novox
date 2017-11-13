@@ -1,12 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class RotationCube : MonoBehaviour {
+public class RotationCube{
 
-    public float Speed;
-    public int numberRandom;
-    public bool rote;
-    public float termina;
-    public int timeStop;
+    private float Speed;
+    private int numberRandom;
+    private bool rote;
+    private float termina;
+    private int timeStop;
 
     void Start()
     {
@@ -16,55 +18,8 @@ public class RotationCube : MonoBehaviour {
         termina = 0f;
         timeStop = 0;
     }
-	void Update ()
-    {
-
-        if(numberRandom==-1)
-        {
-            timeStop++;
-        }
-
-        if(termina >=110f)
-        {
-            rote=false;
-            numberRandom=-1;
-            termina=0;
-        }
-
-        if(timeStop==30f)
-        {
-            numberRandom = Random.Range(0,5);
-            Debug.Log(numberRandom);
-            timeStop = 0; 
-        }
-        switch(numberRandom)
-        {
-            case 0:
-            rote=true;
-            RotationCubePositionInicial();
-            break;
-
-            case 1:
-            rote=true;
-            RotationCubeUp();
-            break;
-
-            case 2:
-            rote=true;
-            RotationCubeDown();
-            break;
-            
-            case 3:
-            rote=true;
-            RotationCubeLeft();
-            break;
-
-            case 4:
-            rote=true;
-            RotationCubeRight();
-            break;
-        }
-    }
+    /*
+    // Vista
     void RotationCubePositionInicial()
     {
         if(rote==true)
@@ -108,6 +63,56 @@ public class RotationCube : MonoBehaviour {
             transform.Rotate (Vector3.left,Speed * Time.deltaTime);
             Speed +=0.01f;
             termina +=0.35f;
+        }
+    } 
+    */
+    
+    public void RandomRotation ()
+    {
+        if(numberRandom==-1)
+        {
+            timeStop++;
+        }
+
+        if(termina >=110f)
+        {
+            rote=false;
+            numberRandom=-1;
+            termina=0;
+        }
+
+        if(timeStop==30f)
+        {
+            numberRandom = Random.Range(0,5);
+            Debug.Log(numberRandom);
+            timeStop = 0; 
+        }
+        switch(numberRandom)
+        {
+            case 0:
+            rote=true;
+            //RotationCubePositionInicial();
+            break;
+
+            case 1:
+            rote=true;
+            //RotationCubeUp();
+            break;
+
+            case 2:
+            rote=true;
+            //RotationCubeDown();
+            break;
+            
+            case 3:
+            rote=true;
+            //RotationCubeLeft();
+            break;
+
+            case 4:
+            rote=true;
+            //RotationCubeRight();
+            break;
         }
     }
 }

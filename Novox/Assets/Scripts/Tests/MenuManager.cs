@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MenuManager : MonoBehaviour {
+public class MenuManager {
 
  public void LoadScene(string SceneName){
 	SceneManager.LoadScene(SceneName);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraTest : MonoBehaviour {
+public class CameraTest {
  
     GameObject CubeTagS;      
     private Vector3 offset;         
@@ -18,8 +18,8 @@ public class CameraTest : MonoBehaviour {
 
     void LateUpdate () 
     {
-         transform.rotation = Quaternion.Euler(30,-45,0);
-		transform.position = CubeTagS.transform.position - offset;
+        //transform.rotation = Quaternion.Euler(30,-45,0);
+		//transform.position = CubeTagS.transform.position - offset;
         
     }
 }

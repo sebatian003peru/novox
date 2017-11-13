@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerMove : MonoBehaviour{
+public class PlayerMove {
 
     private ScoreManagerSc SCM;
     public float Fspeed ;
@@ -29,7 +29,7 @@ public class PlayerMove : MonoBehaviour{
 		vi = new Vector3(0f, 0f, 0f);	
 		Active = true;
         SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
-        rb = GetComponent<Rigidbody> ();
+        rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody> ();
 
     }
 
@@ -65,7 +65,7 @@ public class PlayerMove : MonoBehaviour{
     }
     void FixedUpdate()
 	{
-		rb.velocity = Vector3.ClampMagnitude(GetComponent<Rigidbody>().velocity, MaxSpeed);
+		rb.velocity = Vector3.ClampMagnitude(rb.velocity, MaxSpeed);
 		rb.AddForce(vi.normalized * moveForce, ForceMode.Impulse);
     }
 

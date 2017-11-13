@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuctionManagerSc : MonoBehaviour {
+public class SuctionManagerSc {
 
 	public GameObject[] Suctions;
 
 	public GameObject suctionsOn_Off;
 
-	public int SuctionIndex;
+	private int SuctionIndex;
 
-	public float PlayerHerfloat;
+	private float PlayerHerfloat;
 
-	public float LimitPlayer;
+	private float LimitPlayer;
 
-	public int ItsSuctionSelect;
+	private int ItsSuctionSelect;
 
 	void Start () 
 	{
