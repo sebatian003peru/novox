@@ -194,7 +194,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 259490822}
-  - component: {fileID: 259490823}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -215,42 +214,6 @@ Transform:
   m_Father: {fileID: 1020963925}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &259490823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 259490821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2652a30da82aa7145a6a569c6191cac0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SCM: {fileID: 1735093498}
-  Fspeed: 3
-  NoSpeed: 0
-  MaxSpeed: 0
-  moveForce: 1.5
-  delay: 0
-  vi: {x: 0, y: 0, z: 0}
-  startPos: {x: 0, y: 0, z: 0}
-  Active: 0
-  ElapsedTime: 0
-  TimeOut: 0
-  rb: {fileID: 789143644}
-  Cube: {fileID: 554297734}
-  CubeRD: {fileID: 2100000, guid: f10d45ab10c690c49b11ed2701fa0da8, type: 2}
-  Selected: 0
-  DifficultTimer: 0
-  x: 5
-  y: 5
-  ActivatedCooldown: 0
-  ActivatedEffect: 0
-  attractedTo: {fileID: 322743432}
-  inside: 0
-  PlayerRb: {fileID: 789143644}
-  strengthOfAttraction: 0
-  col: {fileID: 789143640}
 --- !u!1 &277965774 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1965638668449814, guid: 8919d8fb23d641343a858e7661fcbb62,
@@ -268,7 +231,6 @@ GameObject:
   - component: {fileID: 322743435}
   - component: {fileID: 322743434}
   - component: {fileID: 322743438}
-  - component: {fileID: 322743433}
   m_Layer: 0
   m_Name: TuboSubcion
   m_TagString: Untagged
@@ -276,17 +238,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &322743433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 322743432}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 831a43db0a87e90458018c525226d39a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &322743434
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -560,11 +511,6 @@ Transform:
   m_Father: {fileID: 525475326}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!1 &554297734 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1117119040006346, guid: 8919d8fb23d641343a858e7661fcbb62,
-    type: 2}
-  m_PrefabInternal: {fileID: 1672598553}
 --- !u!1 &557752829 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1968165341590782, guid: 8919d8fb23d641343a858e7661fcbb62,
@@ -623,9 +569,6 @@ GameObject:
   - component: {fileID: 789143640}
   - component: {fileID: 789143639}
   - component: {fileID: 789143644}
-  - component: {fileID: 789143645}
-  - component: {fileID: 789143643}
-  - component: {fileID: 789143646}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -700,17 +643,6 @@ Transform:
   m_Father: {fileID: 584775411}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &789143643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 789143638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07b0749f2ca26fa4cbfb9609a25245e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &789143644
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -726,40 +658,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &789143645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 789143638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf035ed174aba948b41ca7c07f92ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &789143646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 789143638}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ec9e438badcd904c9c19a0603890e84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SCM: {fileID: 0}
-  Fspeed: 3
-  NoSpeed: 0
-  MaxSpeed: 0
-  moveForce: 1.5
-  delay: 0
-  vi: {x: 0, y: 0, z: 0}
-  startPos: {x: 0, y: 0, z: 0}
-  Active: 0
-  ElapsedTime: 0
-  TimeOut: 0
-  rb: {fileID: 0}
 --- !u!1 &847148937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,7 +921,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1020963925}
-  - component: {fileID: 1020963926}
   m_Layer: 0
   m_Name: Application
   m_TagString: Untagged
@@ -1047,17 +944,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1020963926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1020963924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57fcebb4946f2304880ddc77eb9c2972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1035290438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,7 +1134,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1149891965}
-  - component: {fileID: 1149891966}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -1269,17 +1154,6 @@ Transform:
   m_Father: {fileID: 1020963925}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1149891966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1149891964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ba3f9dfaf67e7b42ad311b5cef043bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1181799744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,6 +1768,7 @@ Prefab:
         type: 2}
     m_RemovedComponents:
     - {fileID: 114289148163088110, guid: 8919d8fb23d641343a858e7661fcbb62, type: 2}
+    - {fileID: 114539381357699746, guid: 8919d8fb23d641343a858e7661fcbb62, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8919d8fb23d641343a858e7661fcbb62, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1672598554 stripped
@@ -1909,7 +1784,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1735093497}
-  - component: {fileID: 1735093498}
   m_Layer: 5
   m_Name: ScoreManager
   m_TagString: ScoreManagerTag
@@ -1930,21 +1804,6 @@ Transform:
   m_Father: {fileID: 584775411}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1735093498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1735093496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fbc127714b7ee941854a16f74728260, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Scoretxt: {fileID: 396672835}
-  HighScoretxt: {fileID: 155481813}
-  ScoreCount: 0
-  HighScoreCount: 0
 --- !u!1 &1736779537
 GameObject:
   m_ObjectHideFlags: 0
