@@ -9,4 +9,7 @@ public class SpawnBonusData
 	public GameObject AroBonus02;
 	public GameObject AroBonus03;
 	public int BonusIndex;
+	public float WaitTime;
+	public float SpawnTime;
+	public bool SelectInstance;
 }
