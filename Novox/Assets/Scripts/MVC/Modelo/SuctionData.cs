@@ -8,11 +8,11 @@ public class SuctionData
 
 	public GameObject suctionsOn_Off;
 
-	private int SuctionIndex;
+	public int SuctionIndex;
 
-	private float PlayerHerfloat;
+	public float PlayerHerfloat;
 
-	private float LimitPlayer;
+	public float LimitPlayer;
 
-	private int ItsSuctionSelect;
+	public int ItsSuctionSelect;
 }
