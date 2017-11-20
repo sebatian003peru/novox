@@ -1,131 +1,63 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerShootController : PlayerShootManager {
-
-    public GameObject line1;
-    public GameObject line2;
-    public LineRenderer[] lines;
-    public Transform anchor1;
-    public Transform anchor2;
-    public Transform[] anchors;
-    public GameObject dragPoint;
-    public Transform midPoint;
+public class PlayerShootController : PlayerShootManager
+{
+    [HideInInspector]
+    public Vector3 currentPosition;
+    private Vector3 screenPoint;
+    private Vector3 offset;
+    private Vector3 defaulPos;
     public Transform midPoint_out;
-    public GameObject aimer;
-    public GameObject projectile;
+    PlayerShootData SS;
+    GameObject pl;
 
-    private float[] lineLengths;
-    public float startPower = 0;
+    //BallRotation
 
+    Quaternion rotation;
+    Vector3 initRot;
+    float rotSpeed = 5;
+    float rotationZ;
+    float sensitivityZ = 2;
 
     void Start()
     {
-        //start position
-        aimer.transform.position = new Vector3(1, 1, 0);
-        //init
-        //arrays
-        anchors = new Transform[2];
-        anchors[0] = anchor1;
-        anchors[1] = anchor2;
-        lineLengths = new float[2];
-        //lines
-        lines = new LineRenderer[2];
-        line1.GetComponent<LineRenderer>().SetPosition(0, anchor1.position);
-        line1.GetComponent<LineRenderer>().SetPosition(1, dragPoint.transform.position);
-        line1.GetComponent<LineRenderer>().SetWidth(0.15f, 0.05f);
-        lines[0] = line1.GetComponent<LineRenderer>();
-        line2.GetComponent<LineRenderer>().SetPosition(0, anchor2.position);
-        line2.GetComponent<LineRenderer>().SetPosition(1, dragPoint.transform.position);
-        line2.GetComponent<LineRenderer>().SetWidth(0.15f, 0.05f);
-        lines[1] = line2.GetComponent<LineRenderer>();
-
+        SS = GameObject.Find("slingshot").GetComponent<PlayerShootData>();
+        defaulPos = new Vector3(-6.25f, -0.25f, 0);
+        transform.position = defaulPos;
+        transform.rotation = Quaternion.identity;
     }
     void Update()
     {
-        UpdateLines();
-        Aim();
-        GetHeight(GetVelocity(), 3, 1);
-        GetVelocity2();
+        LockedRotation();
+       
+    }
+    void OnMouseDown()
+    {
+        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
+                                                                             Input.mousePosition.y, screenPoint.z));
+        Cursor.visible = false;
+        //Debug.Log(offset);
+    }
+    void OnMouseDrag()
+    {
+        Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+        currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + offset;
 
- 
-        //Debug.Log(string.Format("Angle={0}", GetAngle()));
-
-    }
-    void UpdateLines()
-    {   
-        for (int i = 0; i < lines.Length; i++)
-        {
-            lines[i].SetPosition(1, dragPoint.transform.position);
-            lines[i].SetPosition(0, anchors[i].position);
-            lines[i].SetWidth(0.15f / lineLengths[i], 0.05f / lineLengths[i]);
-            lineLengths[i] = Vector3.Distance(dragPoint.transform.position, anchors[i].position);
-
-            if (lineLengths[i] <= 0.65f) lineLengths[i] = 0.65f;
-        }
-    }
-    void Aim()
-    {
-        Vector3 pullDirection = midPoint.position - (dragPoint.transform.position - midPoint.position).normalized;
-        aimer.transform.position = pullDirection;
-        Debug.DrawRay(midPoint.position, (dragPoint.transform.position-midPoint.position).normalized * 10, Color.red);
-    }
-    public float GetVelocity()
-    {
-        float velocity = Vector3.Distance(dragPoint.transform.position, midPoint.transform.position);
-        return velocity * 2.5f;
-    }
-    public void GetVelocity2()
-    {
-        startPower = Vector3.Distance(dragPoint.transform.position, midPoint.transform.position);
-    }
-    public float GetAngle()
-    {
-        float angle = Vector3.Angle((midPoint.transform.position - dragPoint.transform.position).normalized, Vector3.right);
-        if (dragPoint.transform.position.y > aimer.transform.position.y) angle = angle * -1;
+        transform.position = currentPosition;
         
-        return angle;
     }
-    Vector3 GetShotDirection()
+    void OnMouseUp()
     {
-        Vector3 shotDir = (aimer.transform.position - midPoint.transform.position).normalized;
-        return shotDir;
+        Cursor.visible = true;
+        SS.MakeShot(SS.startPower);       
     }
-    public float GetDistance(float Vinit)
-    {
-        float g = Physics.gravity.y;
-        float Vvert = Vinit * (Mathf.Sin(GetAngle() * Mathf.Deg2Rad));
-        float Vhor = Vinit * (Mathf.Cos(GetAngle() * Mathf.Deg2Rad));
-        float Tvert = (0 - Vvert) / g;
-        float Thor = 2 * Tvert;
-        float distance = Vhor * Thor;
-        return distance;
-    }
-    public float GetHeight(float Vinit, int amountPoints, int pointIndex)
-    {
-        float g = Physics.gravity.y;
-        float Vvert = Vinit * (Mathf.Sin(GetAngle() * Mathf.Deg2Rad));
-        float Vhor = Vinit * (Mathf.Cos(GetAngle() * Mathf.Deg2Rad));
-        float Tvert = (0 - Vvert) / g;
-        float Thor = 2 * Tvert;
-        float Dtot = Vhor * Thor;
-        float Dp = (Dtot / (amountPoints)) * pointIndex;
-        float T2 = Dp / Vhor;
-        float height = ((Vvert * Dp) / Vhor) + 0.5f * g * Mathf.Pow(T2, 2);
-        return height;
-    }
-    public void MakeShot(float power)
-    {
-        //GameObject _projectile = Instantiate(projectile, midPoint_out.position, Quaternion.identity) as GameObject;
-       // _projectile.GetComponent<Rigidbody>().AddForce(GetShotDirection() * power * 2.5f, ForceMode.Impulse);
-        //Destroy(_projectile, 4.0f);
-    }
-    public struct ShotData
-    {
-        float distance;
-        float angle;
-        float velocity;
-    };
 
-    
+       void LockedRotation()
+    {
+        rotationZ += Input.GetAxis("Mouse ScrollWheel") * sensitivityZ * 10;
+        rotationZ = Mathf.Clamp(rotationZ, -30.0f, 30.0f);
+
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, -rotationZ);
+    }
 }

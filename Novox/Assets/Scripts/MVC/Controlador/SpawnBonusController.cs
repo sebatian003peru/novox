@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class SpawnBonusController : SpawnBonusData {
 
+    SpawnBonusController(int BonusIndex, float WaitTime, float SpawnTime)
+    {
+     this.BonusIndex = BonusIndex;
+     this.WaitTime = WaitTime;
+     this.SpawnTime = SpawnTime;
+    }
+
     void Start ()
     {
         BonusIndex = -1;

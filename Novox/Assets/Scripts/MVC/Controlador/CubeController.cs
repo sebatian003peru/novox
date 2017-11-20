@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class CubeController : CubeData {
 
+    public float Speed;
+    public int numberRandom;
+    public bool rote;
+    public float termina;
+    public int timeStop;
+
+  public CubeController(float Speed, int numberRandom, float termina, int timeStop)
+  {
+   this.Speed = Speed;
+   this.numberRandom = numberRandom;
+   this.termina = termina;
+   this.timeStop = timeStop;
+
+  }
+
   public void RandomRotation ()
     {
         if(numberRandom==-1)
