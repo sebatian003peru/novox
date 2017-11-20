@@ -2,13 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuctionView : SuctionController 
+public class SuctionView : MonoBehaviour
 {
+	public int _SuctionIndex;
+	public float _PlayerHerfloat;
+	public float _LimitPlayer;
+	public int _ItsSuctionSelect;
+
+	void Update () 
+	{
+		SuctionController suctionController = new SuctionController (_SuctionIndex,_PlayerHerfloat,_LimitPlayer,_ItsSuctionSelect);
+	}
+
+
 	void OnTriggerStay (Collider obj)
 	{
 		if (obj.gameObject.tag == "Player") 
 		{
-			PlayerHerfloat +=0.2f;
+			_PlayerHerfloat +=0.2f;
 			
 		}
 	}
@@ -16,7 +27,7 @@ public class SuctionView : SuctionController
 	{
 		if (obj.gameObject.tag == "Player") 
 		{
-			PlayerHerfloat = -1;
+			_PlayerHerfloat = -1;
 		}
 	}
 }
