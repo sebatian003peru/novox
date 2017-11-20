@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
-public class PlayerShootController : PlayerShootManager, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class PlayerShootController : PlayerShootManager//,IBeginDragHandler, IDragHandler, IEndDragHandle
 {
     [HideInInspector]
     public Vector3 currentPosition;

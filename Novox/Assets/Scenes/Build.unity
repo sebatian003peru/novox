@@ -888,7 +888,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8efedcda4e6af42adda1cca8ec761a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Suctions_:
+  _SuctionIndex: 0
+  _PlayerHerfloat: 0
+  _LimitPlayer: 0
+  _ItsSuctionSelect: 0
+  _Suctions:
   - {fileID: 1873860640}
   - {fileID: 757795747}
   - {fileID: 277965774}

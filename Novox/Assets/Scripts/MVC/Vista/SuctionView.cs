@@ -8,10 +8,11 @@ public class SuctionView : MonoBehaviour
 	public float _PlayerHerfloat;
 	public float _LimitPlayer;
 	public int _ItsSuctionSelect;
-
+	public GameObject[] _Suctions;
+	
 	void Update () 
 	{
-		SuctionController suctionController = new SuctionController (_SuctionIndex,_PlayerHerfloat,_LimitPlayer,_ItsSuctionSelect);
+		SuctionController suctionController = new SuctionController (_SuctionIndex,_PlayerHerfloat,_LimitPlayer,_ItsSuctionSelect,_Suctions);
 	}
 
 
