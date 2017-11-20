@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
-public class PlayerShootController : PlayerShootManager
+public class PlayerShootController : PlayerShootManager, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [HideInInspector]
     public Vector3 currentPosition;
@@ -19,6 +21,28 @@ public class PlayerShootController : PlayerShootManager
     float rotSpeed = 5;
     float rotationZ;
     float sensitivityZ = 2;
+
+    // public void OnBeginDrag(PointerEventData eventData)
+    //{
+    //          offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
+    //                                                                         Input.mousePosition.y, screenPoint.z));
+    //    Cursor.visible = false;
+    //    //Debug.Log(offset);
+    //}
+//
+    //public void OnDrag(PointerEventData eventData)
+    //{
+    //     Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+    //    currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + offset;
+//
+    //    transform.position = currentPosition;
+    //}
+//
+    //public void OnEndDrag(PointerEventData eventData)
+    //{
+    //     Cursor.visible = true;
+    //    SS.MakeShot(SS.startPower);
+    //}
 
     void Start()
     {
