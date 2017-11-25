@@ -3,42 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CubeController : CubeData {
-
-    public float Speed;
-    public int numberRandom;
-    public bool rote;
-    public float termina;
-    public int timeStop;
-
-  public CubeController(float Speed, int numberRandom, float termina, int timeStop)
+  public CubeController(float _Speed, int _numberRandom, float _termina, int _timeStop,bool _rote)
   {
-   this.Speed = Speed;
-   this.numberRandom = numberRandom;
-   this.termina = termina;
-   this.timeStop = timeStop;
-
+   this.Speed = _Speed;
+   this.numberRandom = _numberRandom;
+   this.termina = _termina;
+   this.timeStop = _timeStop;
+   this.rote = _rote;
   }
 
-  public void RandomRotation ()
+  public void RandomRotation (int _numberRandom,int _timeStop,float _termina,bool _rote)
     {
-        if(numberRandom==-1)
+        /* 
+        if(_numberRandom==-1)
         {
-            timeStop++;
+            _timeStop++;
+            Debug.Log("correWey:,v");
         }
 
-        if(termina >=110f)
+        if(_termina >=110f)
         {
-            rote=false;
-            numberRandom=-1;
-            termina=0;
+            _rote=false;
+            _numberRandom=-1;
+            _termina=0;
+            Debug.Log("terminaPues:,v");
         }
 
-        if(timeStop==30f)
+        if(_timeStop==30f)
         {
-            numberRandom = Random.Range(0,5);
-            Debug.Log(numberRandom);
-            timeStop = 0; 
+            _numberRandom = Random.Range(0,5);
+            Debug.Log(_numberRandom);
+            _timeStop = 0; 
         }
-        
+        */
     }
 }

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotationCube{
+public class RotationCube: MonoBehaviour{
 
-    private float Speed;
-    private int numberRandom;
-    private bool rote;
-    private float termina;
-    private int timeStop;
+    public float Speed;
+    public int numberRandom;
+    public bool rote;
+    public float termina;
+    public int timeStop;
 
     void Start()
     {
@@ -18,8 +18,10 @@ public class RotationCube{
         termina = 0f;
         timeStop = 0;
     }
-    /*
-    // Vista
+    void Update ()
+    {
+        RandomRotation();
+    }
     void RotationCubePositionInicial()
     {
         if(rote==true)
@@ -65,7 +67,7 @@ public class RotationCube{
             termina +=0.35f;
         }
     } 
-    */
+    
     
     public void RandomRotation ()
     {
@@ -91,27 +93,27 @@ public class RotationCube{
         {
             case 0:
             rote=true;
-            //RotationCubePositionInicial();
+            RotationCubePositionInicial();
             break;
 
             case 1:
             rote=true;
-            //RotationCubeUp();
+            RotationCubeUp();
             break;
 
             case 2:
             rote=true;
-            //RotationCubeDown();
+            RotationCubeDown();
             break;
             
             case 3:
             rote=true;
-            //RotationCubeLeft();
+            RotationCubeLeft();
             break;
 
             case 4:
             rote=true;
-            //RotationCubeRight();
+            RotationCubeRight();
             break;
         }
     }
