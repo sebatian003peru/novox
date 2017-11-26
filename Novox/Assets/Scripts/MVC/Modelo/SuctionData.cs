@@ -6,7 +6,7 @@ public class SuctionData
 {
 	public GameObject[] Suctions;
 
-	public GameObject suctionsOn_Off;
+	public GameObject SuctionsOn_Off;
 
 	public int SuctionIndex;
 

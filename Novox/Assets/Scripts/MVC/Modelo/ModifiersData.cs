@@ -5,7 +5,7 @@ using UnityEngine;
 public class ModifiersData {
 
 public GameObject Cube;
-Material CubeRD;
+public Material CubeRD;
 public int Selected; 
 public float DifficultTimer;
 public float x = 5;

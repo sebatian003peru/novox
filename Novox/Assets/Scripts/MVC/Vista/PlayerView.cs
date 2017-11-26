@@ -4,13 +4,34 @@ using UnityEngine;
 
 public class PlayerView : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	private Rigidbody _rb;
+	void Start () 
+	{
+		_rb = GetComponent <Rigidbody>();
+	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	
+	void Update () 
+	{
+		PlayerController playerController = new PlayerController (_rb);
+		playerController.Inputs();
+		playerController.FixedUpdate();
+	}
+	void OnTriggerStay (Collider obj)
+	{
+		if(obj.gameObject.tag=="AreaScore")
+		{
+			_rb.useGravity = false;
+			//SCM.ScoreCount += 0.01f;
+		}
+	}
+
+	void OnTriggerExit (Collider obj)
+	{
+		if(obj.gameObject.tag=="AreaScore")
+		{
+			_rb.useGravity = true;
+		}
 	}
 }

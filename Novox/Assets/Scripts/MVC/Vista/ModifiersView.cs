@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ModifiersView : MonoBehaviour 
 {
-	public void Start ()
+	public float _moveForce;
+	public float _Fspeed;
+	public float _NoSpeed;
+	public float _MaxSpeed;
+	public float _delay;
+	void Start ()
 	{
-		/*
-    	Cooldown=5f;
-    	Duration=5f;
-    	ActivatedCooldown=true;
-    	ActivatedEffect = false;
-    	Cube= GameObject.FindGameObjectWithTag("Cube");
-    	CubeRD= Cube.GetComponent<Renderer>().material;
-		*/
+		ModifierController modifierController = new ModifierController(_moveForce,_Fspeed,_NoSpeed,_MaxSpeed,_delay);
 	}
+	
+	
 }

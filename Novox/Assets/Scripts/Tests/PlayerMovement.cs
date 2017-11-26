@@ -15,12 +15,12 @@ public class PlayerMovement : MonoBehaviour
 
 	private Rigidbody rb;
 
-	private ScoreManagerSc SCM;
+	//private ScoreManagerSc SCM;
 
     void Start()
     {
 		rb = GetComponent<Rigidbody> ();
-		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
+	//	SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
         NoSpeed = Fspeed;
         MaxSpeed = NoSpeed * 2.0f;
     }
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 		if(obj.gameObject.tag=="AreaScore")
 		{
 			rb.useGravity = false;
-			SCM.ScoreCount += 0.01f;
+	//		SCM.ScoreCount += 0.01f;
 		}
 	}
 
