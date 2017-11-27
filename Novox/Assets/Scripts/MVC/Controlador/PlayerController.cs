@@ -27,33 +27,51 @@ public class PlayerController : PlayerData {
 
     public void Inputs ()
     {
-        
-        if (Input.GetTouch(0).phase == TouchPhase.Ended){
-        if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.x < 0)
+
+          if(Input.touchCount > 0)
+         {
+             int i = 0;
+             for(i = 0; i < Input.touchCount; i++)
+             {
+                 Touch touch = Input.GetTouch(i);
+
+         if ( touch.phase == TouchPhase.Began ) {
+          
+        if (touch.phase == TouchPhase.Ended){
+
+        if (Input.GetTouch(0).deltaPosition.x < 0)
         {
             rb.AddForce(Vector3.left * MaxSpeed);
             Active = false;    
 			Debug.Log("Swipe Left");
 		}
-		if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.x > 0) 
+		if (Input.GetTouch(0).deltaPosition.x > 0) 
         {
 			rb.AddForce(Vector3.right* MaxSpeed);
             Active = false;
 			Debug.Log("Swipe Right");
 		}
-        if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.y <  0) 
+        if (Input.GetTouch(0).deltaPosition.y <  0) 
         {
             rb.AddForce(Vector3.down * MaxSpeed);
             Active = false;    
 			Debug.Log("Swipe Down");
 		}
-        if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.y > 0) 
+        if (Input.GetTouch(0).deltaPosition.y > 0) 
         {
             rb.AddForce (Vector3.up * MaxSpeed);
             Active = false;
 			Debug.Log("Swipe Up");
 		}
+        
         }
+      
+         }
+          }
+         }
+    }
+
+       
          
         /* //TestControllers
         if (Input.GetKey (KeyCode.A))
@@ -81,7 +99,7 @@ public class PlayerController : PlayerData {
 			Debug.Log("Swipe Up");
 		} */
          
-    }
+    
     public void FixedUpdate()
 	{
 		rb.velocity = Vector3.ClampMagnitude(rb.velocity, MaxSpeed);
