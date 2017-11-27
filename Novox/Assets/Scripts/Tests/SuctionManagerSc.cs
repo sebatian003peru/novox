@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuctionManagerSc {
+public class SuctionManagerSc: MonoBehaviour {
 
 	public GameObject[] Suctions;
 

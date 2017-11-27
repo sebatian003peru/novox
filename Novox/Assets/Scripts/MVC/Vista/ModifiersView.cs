@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class ModifiersView : MonoBehaviour 
 {
-	public float _moveForce;
-	public float _Fspeed;
-	public float _NoSpeed;
-	public float _MaxSpeed;
-	public float _delay;
+	public GameObject _Cube;
+	Material _CubeRD;
 	void Start ()
 	{
-		ModifierController modifierController = new ModifierController(_moveForce,_Fspeed,_NoSpeed,_MaxSpeed,_delay);
+		_CubeRD= _Cube.GetComponent<Renderer>().material;
+	}
+	void Update()
+	{
+		ModifierController modifierController = new ModifierController(_Cube,_CubeRD);
+		modifierController.Test ();
 	}
 	
 	

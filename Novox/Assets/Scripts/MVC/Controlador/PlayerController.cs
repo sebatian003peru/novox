@@ -27,6 +27,7 @@ public class PlayerController : PlayerData {
 
     public void Inputs ()
     {
+        
         if (Input.GetTouch(0).phase == TouchPhase.Ended){
         if (Input.touchCount > 0  && Input.GetTouch(0).deltaPosition.x < 0)
         {
@@ -53,6 +54,7 @@ public class PlayerController : PlayerData {
 			Debug.Log("Swipe Up");
 		}
         }
+         
         /* //TestControllers
         if (Input.GetKey (KeyCode.A))
         {
@@ -77,8 +79,8 @@ public class PlayerController : PlayerData {
             rb.AddForce (Vector3.up * MaxSpeed);
             Active = false;
 			Debug.Log("Swipe Up");
-		}
-         */
+		} */
+         
     }
     public void FixedUpdate()
 	{
