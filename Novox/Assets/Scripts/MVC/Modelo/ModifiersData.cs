@@ -10,6 +10,6 @@ public int Selected;
 public float DifficultTimer;
 public float x = 5;
 public float y = 5;
-public bool ActivatedCooldown;
+public bool ActivatedCooldown=true;
 public bool ActivatedEffect; 
 }

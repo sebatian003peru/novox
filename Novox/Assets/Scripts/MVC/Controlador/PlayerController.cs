@@ -4,24 +4,25 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlayerController : PlayerData {
-
+    public float _moveForce;
+	public float _Fspeed;
+	public float _NoSpeed;
+	public float _MaxSpeed;
+	public float _delay;
     private bool Active;
     private float TimeOut;
     private Vector3 vi = new Vector3(0f, 0f, 0f);
     private Rigidbody rb ;//= GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody> ();
     
 
-    public PlayerController (Rigidbody _Rb)
+    public PlayerController (float moveForce_,float NoSpeed_,float Fspeed_,float MaxSpeed_,float delay_ ,Rigidbody _Rb)
     {
+        this.moveForce = moveForce_;
+        this.NoSpeed = NoSpeed_;
+        this.Fspeed = Fspeed_;
+        this.MaxSpeed = MaxSpeed_;
+        this.delay = delay_;
         this.rb = _Rb;
-    }
-       public void PlayerData(float moveForce, float Fspeed, float NoSpeed, float MaxSpeed, float Delay)
-    {
-        Fspeed=10f;
-        moveForce=3f;
-        NoSpeed=18f;
-        MaxSpeed=60f;
-        delay=1f;
     }
     
 

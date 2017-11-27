@@ -2,20 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class ModifierController : ModifiersData {
     public float _moveForce;
 	public float _Fspeed;
 	public float _NoSpeed;
 	public float _MaxSpeed;
 	public float _delay;
-	private float Cooldown; 
-    private float Duration; 
-	private PlayerData _player_data;
+	[SerializeField]
+    private float Cooldown = 5f;
+    [SerializeField]
+    private float Duration = 5f;
     public void Test()
     {
+        Debug.Log ("holavoid");
         if (ActivatedCooldown)
         { // Cooldown es el periodo que representa el intermedio entre dos cambios. Es decir que cuando este acabe ocurrira un cambio
             Cooldown-= Time.deltaTime;
+            Debug.Log ("hola");
             }else if (!ActivatedCooldown)
             {
                 Cooldown =  x;
@@ -27,12 +31,14 @@ public class ModifierController : ModifiersData {
             x-= 0.5f;
             ActivatedCooldown = false;
             ActivatedEffect = true;
+            Debug.Log ("hola4");
         }
 
         if (ActivatedEffect)
         {
             Duration-= Time.deltaTime;
             ChooseEffect ();
+            Debug.Log ("hola5");
             }else if (!ActivatedEffect)
             { 
                 Duration = y;
@@ -45,13 +51,15 @@ public class ModifierController : ModifiersData {
             ActivatedEffect=false;
             Debug.Log("Normal");
         }
+        
     }
-    void chooseEffectid()
+    public void chooseEffectid()
     { // Metodo para lanzar un id aleatorio entre los 4 casos
         Selected = Random.Range(1,5);
+        Debug.Log ("hola2");
     }
-    private void ChooseEffect(){ // casos o cambios de estado del jugador
-
+    public void ChooseEffect(){ // casos o cambios de estado del jugador
+    Debug.Log ("hola3");
     switch(Selected){
 
         case 1: //Rojo: La pelota es mas pesada
@@ -73,7 +81,7 @@ public class ModifierController : ModifiersData {
     }
 }
 
-    void RedEffect()
+    public void RedEffect()
     {
         _Fspeed=2;
         _NoSpeed=2;
@@ -84,7 +92,7 @@ public class ModifierController : ModifiersData {
         Debug.Log("Red Effect triggered");
      }
 
-    void GreenEffect()
+    public void GreenEffect()
     {
         _Fspeed=6;
         _NoSpeed=6;
@@ -95,7 +103,7 @@ public class ModifierController : ModifiersData {
         Debug.Log("Green Effect triggered");
     }
 
-    void YellowEffect()
+    public void YellowEffect()
     {
         _Fspeed= 4;
         _NoSpeed= 4;
@@ -106,13 +114,13 @@ public class ModifierController : ModifiersData {
         Debug.Log("Yellow Effect triggered");
     }
 
-    void BlueEffect()
+    public void BlueEffect()
     {
         CubeRD.color = Color.blue;
         Debug.Log("Blue Effect triggered");
 
     }
-    void DefaultMovement()
+    public void DefaultMovement()
     { // Variables default del movimiento del jugador
         _Fspeed=4;
         _NoSpeed=4;
@@ -123,15 +131,15 @@ public class ModifierController : ModifiersData {
     }
 
 
-    public ModifierController(GameObject _Cube_,Material _CubeRD_)
+    public ModifierController(float moveForce_,float NoSpeed_,float Fspeed_,float MaxSpeed_,float delay_ ,GameObject _Cube_,Material _CubeRD_)
     {
+        this._moveForce = moveForce_;
+        this._NoSpeed = NoSpeed_;
+        this._Fspeed = Fspeed_;
+        this._MaxSpeed = MaxSpeed_;
+        this._delay = delay_;
         this.Cube = _Cube_;
         this.CubeRD = _CubeRD_;
-    	_moveForce = _player_data.moveForce;
-        _NoSpeed = _player_data.NoSpeed;
-        _Fspeed = _player_data.Fspeed;
-        _MaxSpeed = _player_data.MaxSpeed;
-        _delay =_player_data.delay;
     }
     
 }

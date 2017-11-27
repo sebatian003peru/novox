@@ -10,6 +10,7 @@ public class SuctionView : MonoBehaviour
 	public int _ItsSuctionSelect;
 	public GameObject[] _Suctions;
 	public GameObject _SuctionsOn_Off;
+	SuctionController suctionController;
 	
 	void Start () 
 	{
@@ -17,10 +18,11 @@ public class SuctionView : MonoBehaviour
 		_LimitPlayer = -1;
 		_SuctionIndex = -1;
 		_ItsSuctionSelect = 0;
+		suctionController = new SuctionController (_SuctionIndex,_PlayerHerfloat,_LimitPlayer,_ItsSuctionSelect,_Suctions,_SuctionsOn_Off);
 	}
 	void Update () 
 	{
-		SuctionController suctionController = new SuctionController (_SuctionIndex,_PlayerHerfloat,_LimitPlayer,_ItsSuctionSelect,_Suctions,_SuctionsOn_Off);
+		
 		proceso();
 	}
 	void proceso () 

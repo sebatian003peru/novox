@@ -9,6 +9,7 @@ public class CubeView : MonoBehaviour
     public bool _rote;
     public float _termina;
     public int _timeStop;
+    CubeController cubeController;
 	 void Start()
     {
         _Speed = 10f;
@@ -16,10 +17,11 @@ public class CubeView : MonoBehaviour
         _rote=false;
         _termina = 0f;
         _timeStop = 0;
+        cubeController = new CubeController(_Speed,_numberRandom,_termina,_timeStop,_rote);
     }
 	void Update ()
 	{
-		CubeController cubeController = new CubeController(_Speed,_numberRandom,_termina,_timeStop,_rote);
+		
 		//cubeController.RandomRotation(_numberRandom,_timeStop,_termina,_rote);
 		ThisRotation();
 	}
