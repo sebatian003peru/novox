@@ -14,15 +14,15 @@ public class SuctionView : MonoBehaviour
 	
 	void Start () 
 	{
+		suctionController = new SuctionController (_SuctionIndex,_PlayerHerfloat,_LimitPlayer,_ItsSuctionSelect,_Suctions,_SuctionsOn_Off);
 		_PlayerHerfloat = -1;
 		_LimitPlayer = -1;
 		_SuctionIndex = -1;
 		_ItsSuctionSelect = 0;
-		suctionController = new SuctionController (_SuctionIndex,_PlayerHerfloat,_LimitPlayer,_ItsSuctionSelect,_Suctions,_SuctionsOn_Off);
+		
 	}
 	void Update () 
 	{
-		
 		proceso();
 	}
 	void proceso () 

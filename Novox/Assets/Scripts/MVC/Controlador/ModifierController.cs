@@ -15,14 +15,15 @@ public class ModifierController : ModifiersData {
     private float Duration = 5f;
     public void Test()
     {
-        Debug.Log ("holavoid");
+        DefaultMovement();
+
         if (ActivatedCooldown)
         { // Cooldown es el periodo que representa el intermedio entre dos cambios. Es decir que cuando este acabe ocurrira un cambio
             Cooldown-= Time.deltaTime;
-            Debug.Log ("hola");
             }else if (!ActivatedCooldown)
             {
                 Cooldown =  x;
+                
             }
 
         if (Cooldown <= 0)
@@ -31,14 +32,12 @@ public class ModifierController : ModifiersData {
             x-= 0.5f;
             ActivatedCooldown = false;
             ActivatedEffect = true;
-            Debug.Log ("hola4");
         }
 
         if (ActivatedEffect)
         {
             Duration-= Time.deltaTime;
             ChooseEffect ();
-            Debug.Log ("hola5");
             }else if (!ActivatedEffect)
             { 
                 Duration = y;
@@ -46,20 +45,18 @@ public class ModifierController : ModifiersData {
 
         if (Duration<=0)
         {
+            DefaultMovement();
             y+=0.5f;
             ActivatedCooldown = true;
             ActivatedEffect=false;
-            Debug.Log("Normal");
         }
         
     }
     public void chooseEffectid()
     { // Metodo para lanzar un id aleatorio entre los 4 casos
         Selected = Random.Range(1,5);
-        Debug.Log ("hola2");
     }
     public void ChooseEffect(){ // casos o cambios de estado del jugador
-    Debug.Log ("hola3");
     switch(Selected){
 
         case 1: //Rojo: La pelota es mas pesada
@@ -83,49 +80,54 @@ public class ModifierController : ModifiersData {
 
     public void RedEffect()
     {
-        _Fspeed=2;
-        _NoSpeed=2;
-        _MaxSpeed=2;
-        _moveForce =2;
-        _delay=1;
+        _Fspeed=70;
+        _NoSpeed=70;
+        _MaxSpeed=70;
+        _moveForce =70;
+        _delay=70;
         CubeRD.color = Color.red;
         Debug.Log("Red Effect triggered");
      }
 
     public void GreenEffect()
     {
-        _Fspeed=6;
-        _NoSpeed=6;
-        _MaxSpeed=6;
-        _moveForce =6;
-        _delay=1;
+        _Fspeed= 170;
+        _NoSpeed= 170;
+        _MaxSpeed= 170;
+        _moveForce = 170;
+        _delay=0.5f;
         CubeRD.color = Color.green;
         Debug.Log("Green Effect triggered");
     }
 
     public void YellowEffect()
     {
-        _Fspeed= 4;
-        _NoSpeed= 4;
-        _MaxSpeed= 4;
-        _moveForce = 4;
-        _delay=2;
+        _Fspeed= 100;
+        _NoSpeed= 100;
+        _MaxSpeed= 100;
+        _moveForce = 100;
+        _delay=2.5f;
         CubeRD.color = Color.yellow;
         Debug.Log("Yellow Effect triggered");
     }
 
     public void BlueEffect()
     {
+         _Fspeed=100;
+        _NoSpeed=100;
+        _MaxSpeed=100;
+        _moveForce =100;
+        _delay=0;
         CubeRD.color = Color.blue;
         Debug.Log("Blue Effect triggered");
 
     }
     public void DefaultMovement()
     { // Variables default del movimiento del jugador
-        _Fspeed=4;
-        _NoSpeed=4;
-        _MaxSpeed=4;
-        _moveForce =4;
+        _Fspeed=100;
+        _NoSpeed=100;
+        _MaxSpeed=100;
+        _moveForce =100;
         _delay=1;
         CubeRD.color = Color.white;     
     }

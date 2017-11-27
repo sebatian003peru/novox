@@ -4,33 +4,36 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerView : MonoBehaviour {
-	public float _moveForce;
-	public float _Fspeed;
-	public float _NoSpeed;
-	public float _MaxSpeed;
-	public float _delay;
+	public float _moveForce_;
+	public float _Fspeed_;
+	public float _NoSpeed_;
+	public float _MaxSpeed_;
+	public float _delay_;
 	private Rigidbody _rb;
 	private ScoreManagerSc SCM;
+	[SerializeField]
 	public ModifiersView MDV;
+	[SerializeField]
 	PlayerController playerController;
 	void Start () 
 	{
 		_rb = GetComponent <Rigidbody>();
 		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
-		playerController = new PlayerController (_moveForce,_NoSpeed,_Fspeed,_MaxSpeed,_delay,_rb);
+		
 	}
 	
 	
 	void Update () 
 	{
-		
+		playerController = new PlayerController (_moveForce_,_NoSpeed_,_Fspeed_,_MaxSpeed_,_delay_,_rb);
+		playerController.Prueba();
 		playerController.Inputs();
 		playerController.FixedUpdate();
-		this._moveForce = MDV._moveForce;
-		this._NoSpeed = MDV._NoSpeed;
-		this._Fspeed = MDV._Fspeed;
-		this._MaxSpeed = MDV._MaxSpeed;
-		this._delay = MDV._delay;
+		this._moveForce_ = MDV._moveForce;
+		this._NoSpeed_ = MDV._NoSpeed;
+		this._Fspeed_ = MDV._Fspeed;
+		this._MaxSpeed_ = MDV._MaxSpeed;
+		this._delay_ = MDV._delay;
 	}
 	void OnTriggerStay (Collider obj)
 	{

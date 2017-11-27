@@ -21,8 +21,12 @@ public class ModifiersView : MonoBehaviour
 	}
 	void Update()
 	{
-		
 		modifierController.Test ();
+		_moveForce=modifierController._moveForce;
+		_Fspeed=modifierController._Fspeed;
+		_NoSpeed=modifierController._NoSpeed;
+		_MaxSpeed=modifierController._MaxSpeed;
+		_delay=modifierController._delay;
 	}
 	
 	
