@@ -9,7 +9,7 @@ public class PlayerController : PlayerData {
     private float TimeOut;
     private Vector3 vi = new Vector3(0f, 0f, 0f);
     private Rigidbody rb ;//= GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody> ();
-    //private ScoreManagerSc SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
+    
 
     public PlayerController (Rigidbody _Rb)
     {

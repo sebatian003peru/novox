@@ -4,18 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class ScoreManagerSc{
+public class ScoreManagerSc: MonoBehaviour{
 
 	public Text Scoretxt;
 	public Text HighScoretxt;
 
 	public float ScoreCount;
 	public float HighScoreCount;
-    
 	
-
-
-
 	void Start () 
 	{
 		if(PlayerPrefs.HasKey("HighScore"))

@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerView : MonoBehaviour {
 
 	private Rigidbody _rb;
+	private ScoreManagerSc SCM;
 	void Start () 
 	{
 		_rb = GetComponent <Rigidbody>();
-	
+		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
 	}
 	
 	
@@ -23,7 +25,7 @@ public class PlayerView : MonoBehaviour {
 		if(obj.gameObject.tag=="AreaScore")
 		{
 			_rb.useGravity = false;
-			//SCM.ScoreCount += 0.01f;
+			SCM.ScoreCount += 0.01f;
 		}
 	}
 
@@ -32,6 +34,7 @@ public class PlayerView : MonoBehaviour {
 		if(obj.gameObject.tag=="AreaScore")
 		{
 			_rb.useGravity = true;
+			SceneManager.LoadScene ("GameOver");
 		}
 	}
 }

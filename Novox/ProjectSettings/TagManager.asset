@@ -10,6 +10,7 @@ TagManager:
   - DetecterBonificationTag
   - PlayerSuctionTag
   - Cube
+  - DataScoreTag
   layers:
   - Default
   - TransparentFX
