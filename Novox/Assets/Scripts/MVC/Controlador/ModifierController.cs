@@ -51,6 +51,13 @@ public class ModifierController : ModifiersData {
             ActivatedCooldown = true;
             ActivatedEffect=false;
         }
+
+        if (x<=1){
+            x=1;
+        }
+        if (y>=10){
+            y=10;
+        }
         
     }
     public void chooseEffectid()
