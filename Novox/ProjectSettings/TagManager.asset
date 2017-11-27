@@ -11,6 +11,7 @@ TagManager:
   - PlayerSuctionTag
   - Cube
   - DataScoreTag
+  - PuntoCalienteTag
   layers:
   - Default
   - TransparentFX
