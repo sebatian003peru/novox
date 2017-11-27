@@ -9,14 +9,16 @@ public class PlayerController : PlayerData {
 	public float _NoSpeed_;
 	public float _MaxSpeed_;
 	public float _delay_;
+    public bool _InvertedControls_;
     public bool Active;
     public float TimeOut;
     public Vector3 vi = new Vector3(0f, 0f, 0f);
     public Rigidbody rb ;//= GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody> ();
     
 
-    public PlayerController (float moveForce_,float NoSpeed_,float Fspeed_,float MaxSpeed_,float delay_ ,Rigidbody _Rb)
+    public PlayerController (bool InvertedControls_,float moveForce_,float NoSpeed_,float Fspeed_,float MaxSpeed_,float delay_ ,Rigidbody _Rb)
     {
+        this._InvertedControls_ = InvertedControls_;
         this._moveForce_ = moveForce_;
         this._NoSpeed_ = NoSpeed_;
         this._Fspeed_ = Fspeed_;
@@ -27,6 +29,7 @@ public class PlayerController : PlayerData {
 
     public void Prueba ()
     {
+        this.InvertedControls = _InvertedControls_;
         this.moveForce = _moveForce_;
         this.NoSpeed = _NoSpeed_;
         this.Fspeed = _Fspeed_;
@@ -54,7 +57,8 @@ public class PlayerController : PlayerData {
             {
                 Touch touch = Input.GetTouch(i);
 
-                
+                if (InvertedControls==false)
+
                 {
                     if (touch.phase == TouchPhase.Ended)
                     {
@@ -85,6 +89,40 @@ public class PlayerController : PlayerData {
         
                     }
       
+                }
+
+                else if (InvertedControls == true)
+                {
+                        if (touch.phase == TouchPhase.Ended)
+                    {
+                        if (Input.GetTouch(0).deltaPosition.x < 0)
+                        {
+                            rb.AddForce(Vector3.right * MaxSpeed);
+                            Active = false;    
+                            Debug.Log("Swipe right inverted");
+		                }
+		                if (Input.GetTouch(0).deltaPosition.x > 0) 
+                        {  
+			                rb.AddForce(Vector3.left* MaxSpeed);
+                            Active = false;
+			                Debug.Log("Swipe left inverted");
+		                }
+                        if (Input.GetTouch(0).deltaPosition.y <  0) 
+                        {
+                            rb.AddForce(Vector3.up * MaxSpeed);
+                            Active = false;    
+		                	Debug.Log("Swipe up inverted");
+		                }
+                        if (Input.GetTouch(0).deltaPosition.y > 0) 
+                        {
+                            rb.AddForce (Vector3.down * MaxSpeed);
+                            Active = false;
+		                	Debug.Log("Swipe down inverted");
+		                }
+        
+                    }
+
+
                 }
             }
         }

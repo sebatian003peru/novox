@@ -9,4 +9,5 @@ public class PlayerData  {
     public float moveForce;
     public float delay;
     public float ElapsedTime;
+    public bool InvertedControls;
 }

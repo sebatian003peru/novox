@@ -9,6 +9,7 @@ public class ModifierController : ModifiersData {
 	public float _NoSpeed;
 	public float _MaxSpeed;
 	public float _delay;
+    public bool _InvertedControls;
 	[SerializeField]
     private float Cooldown = 5f;
     [SerializeField]
@@ -80,6 +81,7 @@ public class ModifierController : ModifiersData {
 
     public void RedEffect()
     {
+        _InvertedControls = false;
         _Fspeed=70;
         _NoSpeed=70;
         _MaxSpeed=70;
@@ -91,29 +93,32 @@ public class ModifierController : ModifiersData {
 
     public void GreenEffect()
     {
+        _InvertedControls = false;
         _Fspeed= 170;
         _NoSpeed= 170;
         _MaxSpeed= 170;
         _moveForce = 170;
-        _delay=0.5f;
+        _delay=0.25f;
         CubeRD.color = Color.green;
         Debug.Log("Green Effect triggered");
     }
 
     public void YellowEffect()
     {
+        _InvertedControls = false;
         _Fspeed= 100;
         _NoSpeed= 100;
         _MaxSpeed= 100;
         _moveForce = 100;
-        _delay=2.5f;
+        _delay=1.0f;
         CubeRD.color = Color.yellow;
         Debug.Log("Yellow Effect triggered");
     }
 
     public void BlueEffect()
     {
-         _Fspeed=100;
+        _InvertedControls = true;
+        _Fspeed=100;
         _NoSpeed=100;
         _MaxSpeed=100;
         _moveForce =100;
@@ -124,17 +129,19 @@ public class ModifierController : ModifiersData {
     }
     public void DefaultMovement()
     { // Variables default del movimiento del jugador
+        _InvertedControls = false;
         _Fspeed=100;
         _NoSpeed=100;
         _MaxSpeed=100;
         _moveForce =100;
-        _delay=1;
+        _delay=0.5f;
         CubeRD.color = Color.white;     
     }
 
 
-    public ModifierController(float moveForce_,float NoSpeed_,float Fspeed_,float MaxSpeed_,float delay_ ,GameObject _Cube_,Material _CubeRD_)
+    public ModifierController(bool InvertedControls_,float moveForce_,float NoSpeed_,float Fspeed_,float MaxSpeed_,float delay_ ,GameObject _Cube_,Material _CubeRD_)
     {
+        this._InvertedControls = InvertedControls_;
         this._moveForce = moveForce_;
         this._NoSpeed = NoSpeed_;
         this._Fspeed = Fspeed_;

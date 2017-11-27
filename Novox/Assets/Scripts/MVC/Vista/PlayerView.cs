@@ -9,6 +9,7 @@ public class PlayerView : MonoBehaviour {
 	public float _NoSpeed_;
 	public float _MaxSpeed_;
 	public float _delay_;
+	public bool _InvertedControls_;
 	private Rigidbody _rb;
 	private ScoreManagerSc SCM;
 	[SerializeField]
@@ -25,10 +26,11 @@ public class PlayerView : MonoBehaviour {
 	
 	void Update () 
 	{
-		playerController = new PlayerController (_moveForce_,_NoSpeed_,_Fspeed_,_MaxSpeed_,_delay_,_rb);
+		playerController = new PlayerController (_InvertedControls_,_moveForce_,_NoSpeed_,_Fspeed_,_MaxSpeed_,_delay_,_rb);
 		playerController.Prueba();
 		playerController.Inputs();
 		playerController.FixedUpdate();
+		this._InvertedControls_ = MDV._InvertedControls;
 		this._moveForce_ = MDV._moveForce;
 		this._NoSpeed_ = MDV._NoSpeed;
 		this._Fspeed_ = MDV._Fspeed;
