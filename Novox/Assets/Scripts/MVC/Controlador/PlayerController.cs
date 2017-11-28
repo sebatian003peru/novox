@@ -36,15 +36,6 @@ public class PlayerController : PlayerData {
         this.MaxSpeed = _MaxSpeed_;
         this.delay = _delay_;
     }
-    public void Prueba2 ()
-    {
-        //this._moveForce_ = moveForce_;
-        //this._NoSpeed_ = NoSpeed_;
-        //this._Fspeed_ = Fspeed_;
-        //this._MaxSpeed_ = MaxSpeed_;
-        //this._delay_ = delay_;
-        //this.rb = _Rb;
-    }
     
 
     public void Inputs ()
@@ -62,13 +53,13 @@ public class PlayerController : PlayerData {
                 {
                     if (touch.phase == TouchPhase.Ended)
                     {
-                        if (Input.GetTouch(0).deltaPosition.x) < 0.65f)
+                        if (Input.GetTouch(0).deltaPosition.x < 0.65f)
                         {
                             rb.AddForce(Vector3.back * MaxSpeed);
                             Active = false;    
                             Debug.Log("Swipe Back");
 		                }
-		                if (Input.GetTouch(0).deltaPosition.x) > 0.65f)
+		                if (Input.GetTouch(0).deltaPosition.x > 0.65f)
                         {  
 			                rb.AddForce(Vector3.forward* MaxSpeed);
                             Active = false;
@@ -108,13 +99,13 @@ public class PlayerController : PlayerData {
                 {
                         if (touch.phase == TouchPhase.Ended)
                     {
-                        if (Input.GetTouch(0).deltaPosition.x) < 0.65f)
+                        if (Input.GetTouch(0).deltaPosition.x < 0.65f)
                         {
                             rb.AddForce(Vector3.forward * MaxSpeed);
                             Active = false;    
                             Debug.Log("Swipe forward inverted");
 		                }
-		                if (Input.GetTouch(0).deltaPosition.x) > 0.65f)
+		                if (Input.GetTouch(0).deltaPosition.x > 0.65f)
                         {  
 			                rb.AddForce(Vector3.back* MaxSpeed);
                             Active = false;
