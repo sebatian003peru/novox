@@ -62,29 +62,42 @@ public class PlayerController : PlayerData {
                 {
                     if (touch.phase == TouchPhase.Ended)
                     {
-                        if (Input.GetTouch(0).deltaPosition.x < 0)
+                        if (Input.GetTouch(0).deltaPosition.x) < 0.65f)
                         {
-                            rb.AddForce(Vector3.left * MaxSpeed);
+                            rb.AddForce(Vector3.back * MaxSpeed);
                             Active = false;    
-                            Debug.Log("Swipe Left");
+                            Debug.Log("Swipe Back");
 		                }
-		                if (Input.GetTouch(0).deltaPosition.x > 0) 
+		                if (Input.GetTouch(0).deltaPosition.x) > 0.65f)
                         {  
-			                rb.AddForce(Vector3.right* MaxSpeed);
+			                rb.AddForce(Vector3.forward* MaxSpeed);
                             Active = false;
-			                Debug.Log("Swipe Right");
+			                Debug.Log("Swipe Forward");
 		                }
-                        if (Input.GetTouch(0).deltaPosition.y <  0) 
+                        if (Input.GetTouch(0).deltaPosition.y <  0.65f) 
                         {
                             rb.AddForce(Vector3.down * MaxSpeed);
                             Active = false;    
 		                	Debug.Log("Swipe Down");
 		                }
-                        if (Input.GetTouch(0).deltaPosition.y > 0) 
+                        if (Input.GetTouch(0).deltaPosition.y > 0.65f) 
                         {
                             rb.AddForce (Vector3.up * MaxSpeed);
                             Active = false;
 		                	Debug.Log("Swipe Up");
+		                }
+
+                        if (Mathf.Sign(Input.GetTouch(0).deltaPosition.x) >  0) 
+                        {
+                            rb.AddForce(Vector3.left * MaxSpeed);
+                            Active = false;    
+		                	Debug.Log("Swipe Left");
+		                }
+                        if (Mathf.Sign(Input.GetTouch(0).deltaPosition.y) < 0) 
+                        {
+                            rb.AddForce (Vector3.right * MaxSpeed);
+                            Active = false;
+		                	Debug.Log("Swipe Right");
 		                }
         
                     }
@@ -95,31 +108,43 @@ public class PlayerController : PlayerData {
                 {
                         if (touch.phase == TouchPhase.Ended)
                     {
-                        if (Input.GetTouch(0).deltaPosition.x < 0)
+                        if (Input.GetTouch(0).deltaPosition.x) < 0.65f)
                         {
-                            rb.AddForce(Vector3.right * MaxSpeed);
+                            rb.AddForce(Vector3.forward * MaxSpeed);
                             Active = false;    
-                            Debug.Log("Swipe right inverted");
+                            Debug.Log("Swipe forward inverted");
 		                }
-		                if (Input.GetTouch(0).deltaPosition.x > 0) 
+		                if (Input.GetTouch(0).deltaPosition.x) > 0.65f)
                         {  
-			                rb.AddForce(Vector3.left* MaxSpeed);
+			                rb.AddForce(Vector3.back* MaxSpeed);
                             Active = false;
-			                Debug.Log("Swipe left inverted");
+			                Debug.Log("Swipe back inverted");
 		                }
-                        if (Input.GetTouch(0).deltaPosition.y <  0) 
+                        if (Input.GetTouch(0).deltaPosition.y <  0.65f) 
                         {
                             rb.AddForce(Vector3.up * MaxSpeed);
                             Active = false;    
 		                	Debug.Log("Swipe up inverted");
 		                }
-                        if (Input.GetTouch(0).deltaPosition.y > 0) 
+                        if (Input.GetTouch(0).deltaPosition.y > 0.65f) 
                         {
                             rb.AddForce (Vector3.down * MaxSpeed);
                             Active = false;
 		                	Debug.Log("Swipe down inverted");
 		                }
-        
+
+                        if (Mathf.Sign(Input.GetTouch(0).deltaPosition.x) >  0) 
+                        {
+                            rb.AddForce(Vector3.right * MaxSpeed);
+                            Active = false;    
+		                	Debug.Log("Swipe right inverted");
+		                }
+                        if (Mathf.Sign(Input.GetTouch(0).deltaPosition.y) < 0) 
+                        {
+                            rb.AddForce (Vector3.left * MaxSpeed);
+                            Active = false;
+		                	Debug.Log("Swipe left inverted");
+		                }
                     }
 
 
