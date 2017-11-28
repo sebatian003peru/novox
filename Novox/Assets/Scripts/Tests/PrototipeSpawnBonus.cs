@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrototipeSpawnBonus{
+public class PrototipeSpawnBonus: MonoBehaviour{
 
 	public Transform[] SpawnPoints;
 	public GameObject AroBonus01;
@@ -50,14 +50,14 @@ public class PrototipeSpawnBonus{
 	}
 	void Instance01 ()
 	{
-		//Instantiate (AroBonus01,SpawnPoints [BonusIndex].position, SpawnPoints [BonusIndex].rotation);
+		Instantiate (AroBonus01,SpawnPoints [BonusIndex].position, SpawnPoints [BonusIndex].rotation);
 	}
 	void Instance02 ()
 	{
-		//Instantiate (AroBonus02,SpawnPoints [BonusIndex].position, SpawnPoints [BonusIndex].rotation);
+		Instantiate (AroBonus02,SpawnPoints [BonusIndex].position, SpawnPoints [BonusIndex].rotation);
 	}
 	void Instance03 ()
 	{
-		//Instantiate (AroBonus03,SpawnPoints [BonusIndex].position, SpawnPoints [BonusIndex].rotation);
+		Instantiate (AroBonus03,SpawnPoints [BonusIndex].position, SpawnPoints [BonusIndex].rotation);
 	}
 }

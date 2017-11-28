@@ -12,6 +12,7 @@ TagManager:
   - Cube
   - DataScoreTag
   - PuntoCalienteTag
+  - PuntoCalienteManagerTag
   layers:
   - Default
   - TransparentFX

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33018982037899772}
   - component: {fileID: 65203070184604578}
   - component: {fileID: 23681479319117206}
-  - component: {fileID: 114200634718946332}
+  - component: {fileID: 114764933054970094}
   m_Layer: 0
   m_Name: AroBonification-UpArrow_DownArrow
   m_TagString: Untagged
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114200634718946332
+--- !u!114 &114764933054970094
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

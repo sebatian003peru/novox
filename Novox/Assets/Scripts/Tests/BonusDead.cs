@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonusDead {
+public class BonusDead: MonoBehaviour {
 
 	private GameObject maestro;
 	private ScoreManagerSc SCM;
@@ -12,7 +12,7 @@ public class BonusDead {
 	{
 		maestro=GameObject.FindGameObjectWithTag ("CubeTag");
 		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
-		//transform.SetParent(maestro.transform);
+		transform.SetParent(maestro.transform);
 	}
 
 	void Update () 
@@ -21,7 +21,7 @@ public class BonusDead {
 
 		if (dead >= 20f) 
 		{
-			//Destroy (this.gameObject);
+			Destroy (this.gameObject);
 		}
 	}
 	void OnTriggerEnter (Collider obj)
@@ -29,7 +29,7 @@ public class BonusDead {
 		if (obj.gameObject.tag == "DetecterBonificationTag") 
 		{
 			SCM.ScoreCount += 10f;
-			//Destroy (this.gameObject);
+			Destroy (this.gameObject);
 		}
 	}
 }

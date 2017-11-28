@@ -14,11 +14,13 @@ public class PuntoCalienteSc : MonoBehaviour {
 	float factorT;
 	public Transform PlayerT;
 	ScoreManagerSc SCM;
+	PuntoCalienteManager PCM;
 	public float Dead;
 
 	void Start()
 	{
 		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
+		PCM = GameObject.FindGameObjectWithTag ("PuntoCalienteManagerTag").GetComponent <PuntoCalienteManager> ();
 	    t = 1f;
 	    CalcularValores();
 	}
@@ -27,6 +29,7 @@ public class PuntoCalienteSc : MonoBehaviour {
 	{
 		if(Dead >= 2.3f)
 		{
+			PCM.Go_CoolDown = true;
 			SCM.ScoreCount +=6;
 			Destroy(ThisDestroy);
 		}
@@ -36,6 +39,7 @@ public class PuntoCalienteSc : MonoBehaviour {
 	        IndexActual++;
 	        if(IndexActual == Puntos.Length-1)
 	        {
+				PCM.Go_CoolDown = true;
 	            Destroy(ThisDestroy);
 	        }
 	        CalcularValores();

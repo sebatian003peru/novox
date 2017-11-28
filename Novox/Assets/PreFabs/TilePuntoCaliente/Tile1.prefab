@@ -98,6 +98,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4642277747478084}
+  - component: {fileID: 114217973593780628}
   m_Layer: 0
   m_Name: Tile1
   m_TagString: Untagged
@@ -268,6 +269,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114217973593780628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1710933651307240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90844a1ab08edc547a1960ab74f34614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114604972709198474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f423e6d8021567448ff5d3d716ed504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ThisDestroy: {fileID: 1710933651307240}
   Velocidad: 1
   Puntos:
   - {fileID: 4369121798442912}
@@ -286,3 +299,4 @@ MonoBehaviour:
   - {fileID: 4929385217773924}
   - {fileID: 4094870521856464}
   PlayerT: {fileID: 4552691117230504}
+  Dead: 0

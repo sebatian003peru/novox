@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33387178964394924}
   - component: {fileID: 65218214062187358}
   - component: {fileID: 23567938277641054}
-  - component: {fileID: 114052516783436026}
+  - component: {fileID: 114635302978082958}
   m_Layer: 0
   m_Name: AroBonification-A_S
   m_TagString: Untagged
@@ -94,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114052516783436026
+--- !u!114 &114635302978082958
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
