@@ -21,4 +21,8 @@ public class MenuManagerSc : MonoBehaviour
 	{
 		SceneManager.LoadScene ("MainMenu");
 	}
+	public void Tutorial ()
+	{
+		SceneManager.LoadScene ("Tutorial");
+	}
 }
