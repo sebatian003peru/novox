@@ -53,25 +53,25 @@ public class PlayerController : PlayerData {
                 {
                     if (touch.phase == TouchPhase.Ended)
                     {
-                        if (Input.GetTouch(0).deltaPosition.x < 0.65f)
+                        if (Input.GetTouch(0).deltaPosition.x < 0.5f)
                         {
                             rb.AddForce(Vector3.back * MaxSpeed);
                             Active = false;    
                             Debug.Log("Swipe Back");
 		                }
-		                if (Input.GetTouch(0).deltaPosition.x > 0.65f)
+		                if (Input.GetTouch(0).deltaPosition.x > 0.5f)
                         {  
 			                rb.AddForce(Vector3.forward* MaxSpeed);
                             Active = false;
 			                Debug.Log("Swipe Forward");
 		                }
-                        if (Input.GetTouch(0).deltaPosition.y <  0.65f) 
+                        if (Input.GetTouch(0).deltaPosition.y <  0.5f) 
                         {
                             rb.AddForce(Vector3.down * MaxSpeed);
                             Active = false;    
 		                	Debug.Log("Swipe Down");
 		                }
-                        if (Input.GetTouch(0).deltaPosition.y > 0.65f) 
+                        if (Input.GetTouch(0).deltaPosition.y > 0.5f) 
                         {
                             rb.AddForce (Vector3.up * MaxSpeed);
                             Active = false;

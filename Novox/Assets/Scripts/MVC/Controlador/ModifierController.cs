@@ -14,6 +14,9 @@ public class ModifierController : ModifiersData {
     private float Cooldown = 5f;
     [SerializeField]
     private float Duration = 5f;
+    PlayerView pw;
+    public AudioClip ModifierSFX;
+
     public void Test()
     {
         DefaultMovement();
@@ -84,6 +87,7 @@ public class ModifierController : ModifiersData {
         break;
 
     }
+
 }
 
     public void RedEffect()
@@ -105,7 +109,7 @@ public class ModifierController : ModifiersData {
         _NoSpeed= 170;
         _MaxSpeed= 170;
         _moveForce = 170;
-        _delay=0.25f;
+        _delay=0f;
         CubeRD.color = Color.green;
         Debug.Log("Green Effect triggered");
     }
@@ -117,7 +121,7 @@ public class ModifierController : ModifiersData {
         _NoSpeed= 100;
         _MaxSpeed= 100;
         _moveForce = 100;
-        _delay=1.0f;
+        _delay=0.5f;
         CubeRD.color = Color.yellow;
         Debug.Log("Yellow Effect triggered");
     }
@@ -141,7 +145,7 @@ public class ModifierController : ModifiersData {
         _NoSpeed=100;
         _MaxSpeed=100;
         _moveForce =100;
-        _delay=0.5f;
+        _delay=0f;
         CubeRD.color = Color.white;     
     }
 

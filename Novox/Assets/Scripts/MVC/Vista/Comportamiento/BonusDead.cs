@@ -11,6 +11,7 @@ public class BonusDead: MonoBehaviour {
 	private ScoreManagerSc SCM;
 	private float dead;
 	PrototipeSpawnBonus SB;
+	
 
 	void Start () 
 	{
@@ -19,6 +20,7 @@ public class BonusDead: MonoBehaviour {
 		maestro=GameObject.FindGameObjectWithTag ("CubeTag");
 		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
 		transform.SetParent(maestro.transform);
+		
 	}
 
 	void Update () 
