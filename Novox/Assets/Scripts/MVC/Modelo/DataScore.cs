@@ -8,9 +8,9 @@ public class DataScore : MonoBehaviour {
 	ScoreManagerSc ScM;
 	public float Score_;
 	public float HightScore_;
+	public bool ItsFinishScoreInGame;
 	void Awake ()
 	{
-		
 		if (groupSc == null) 
 		{
 			DontDestroyOnLoad (gameObject);
@@ -20,21 +20,21 @@ public class DataScore : MonoBehaviour {
 		{
 			Destroy (gameObject);
 		}
-
+		ItsFinishScoreInGame = false;
 	}
 	void Start () 
 	{
 		
-
 	}
-	
-	// Update is called once per frame
 	void Update () 
 	{
 		ScM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc>();
-		Score_ = ScM.ScoreCount;
-		HightScore_ = ScM.HighScoreCount;
-		DontDestroyOnLoad(this.gameObject);
+		if(ItsFinishScoreInGame==true)
+		{
+			Score_ = ScM.ScoreCount;
+			HightScore_ = ScM.HighScoreCount;
+			DontDestroyOnLoad(this.gameObject);
+		}
 	}
 	
 }

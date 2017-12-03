@@ -11,9 +11,11 @@ public class ScoreManagerSc: MonoBehaviour{
 
 	public float ScoreCount;
 	public float HighScoreCount;
+	private DataScore DS;
 	
 	void Start () 
 	{
+		DS = GameObject.FindGameObjectWithTag ("DataScoreTag").GetComponent <DataScore> ();
 		if(PlayerPrefs.HasKey("HighScore"))
 		{
 			HighScoreCount =	PlayerPrefs.GetFloat ("HighScore");
@@ -25,6 +27,9 @@ public class ScoreManagerSc: MonoBehaviour{
 		if (ScoreCount >= HighScoreCount) 
 		{
 			HighScoreCount = ScoreCount;
+		}
+		if(DS.ItsFinishScoreInGame == true)
+		{
 			PlayerPrefs.SetFloat ("HighScore",HighScoreCount);
 		}
 

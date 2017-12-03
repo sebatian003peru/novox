@@ -105,3 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10683da387074d4ab8db2e99fa71f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UpParticule: {fileID: 1090433981705194, guid: 2b740881564b0814bb885013e967ef85,
+    type: 2}
+  DownParticule: {fileID: 1941590220304330, guid: 95b47f493b5839544b2c1169550b1fd8,
+    type: 2}

@@ -291,8 +291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f423e6d8021567448ff5d3d716ed504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UpParticule: {fileID: 1477434745630236, guid: 039d67a82c9c3894bbec83b58be424b8,
+    type: 2}
+  DownParticule: {fileID: 1534046952381224, guid: f92bd4e8f5e2db74d986d661356586e4,
+    type: 2}
   ThisDestroy: {fileID: 1710933651307240}
-  Velocidad: 1
+  Velocidad: 1.5
   Puntos:
   - {fileID: 4369121798442912}
   - {fileID: 4596512750687242}

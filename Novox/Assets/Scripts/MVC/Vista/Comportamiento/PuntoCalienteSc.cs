@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PuntoCalienteSc : MonoBehaviour {
 	
+	private Transform SpawnParticule;
+	public GameObject UpParticule;
+	public GameObject DownParticule;
 	public GameObject ThisDestroy;
 	public float Velocidad;
 	public Transform[] Puntos;
@@ -21,16 +24,18 @@ public class PuntoCalienteSc : MonoBehaviour {
 	{
 		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
 		PCM = GameObject.FindGameObjectWithTag ("PuntoCalienteManagerTag").GetComponent <PuntoCalienteManager> ();
+		SpawnParticule = GameObject.FindGameObjectWithTag ("PuntoCalienteManagerTag").GetComponent <Transform>();
 	    t = 1f;
 	    CalcularValores();
 	}
 
 	void Update()
 	{
-		if(Dead >= 2.3f)
+		if(Dead >= 5.2f)
 		{
 			PCM.Go_CoolDown = true;
 			SCM.ScoreCount +=6;
+			Instantiate(UpParticule,SpawnParticule.position,SpawnParticule.rotation);
 			Destroy(ThisDestroy);
 		}
 	    t += factorT * Time.deltaTime;
@@ -40,6 +45,7 @@ public class PuntoCalienteSc : MonoBehaviour {
 	        if(IndexActual == Puntos.Length-1)
 	        {
 				PCM.Go_CoolDown = true;
+				Instantiate(DownParticule,SpawnParticule.position,SpawnParticule.rotation);
 	            Destroy(ThisDestroy);
 	        }
 	        CalcularValores();

@@ -25,7 +25,7 @@ public class PuntoCalienteManager : MonoBehaviour
 		{
 			CoolDown += Time.deltaTime;
 		}
-		if(CoolDown >=5f)
+		if(CoolDown >=7.5f)
 		{
 			Spawn_Index = Random.Range (0,Spawns.Length);
 			Tile_Index = Random.Range (0,Tiles.Length);

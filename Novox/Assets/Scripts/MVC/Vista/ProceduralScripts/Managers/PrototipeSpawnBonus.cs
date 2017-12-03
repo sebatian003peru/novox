@@ -8,20 +8,29 @@ public class PrototipeSpawnBonus: MonoBehaviour{
 	public GameObject AroBonus01;
 	public GameObject AroBonus02;
 	public GameObject AroBonus03;
-
 	public int BonusIndex;
+	public bool Go_CoolDown;
+	public float CoolDown;
 
 	void Start ()
 	{
+		Go_CoolDown = true;
+		CoolDown = 0;
 		BonusIndex = -1;
 	}
 	void Update ()
 	{
-		if (Input.GetKeyDown (KeyCode.Space)) 
+		if(Go_CoolDown==true)
+		{
+			CoolDown += Time.deltaTime;
+		}
+		if(CoolDown >=4.5f)
 		{
 			BonusIndex = Random.Range (0, SpawnPoints.Length);
 			Debug.Log ("BonusIndex " + BonusIndex);
 			ItsSpawnCorrect ();
+			CoolDown = 0f;
+			Go_CoolDown = false;
 		}
 	}
 	void ItsSpawnCorrect ()

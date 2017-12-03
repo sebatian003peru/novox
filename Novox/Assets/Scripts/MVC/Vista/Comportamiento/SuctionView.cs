@@ -17,7 +17,7 @@ public class SuctionView : MonoBehaviour
 		suctionController = new SuctionController (_SuctionIndex,_PlayerHerfloat,_LimitPlayer,_ItsSuctionSelect,_Suctions,_SuctionsOn_Off);
 		_PlayerHerfloat = -1;
 		_LimitPlayer = -1;
-		_SuctionIndex = -1;
+		_SuctionIndex = 0;
 		_ItsSuctionSelect = 0;
 		
 	}

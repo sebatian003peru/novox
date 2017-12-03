@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerView : MonoBehaviour {
+	private Transform SpawnParticule;
+	public GameObject DeadParticule;
 	public float _moveForce_;
 	public float _Fspeed_;
 	public float _NoSpeed_;
@@ -12,6 +13,7 @@ public class PlayerView : MonoBehaviour {
 	public bool _InvertedControls_;
 	private Rigidbody _rb;
 	private ScoreManagerSc SCM;
+	private DataScore DS;
 	[SerializeField]
 	public ModifiersView MDV;
 	[SerializeField]
@@ -19,8 +21,9 @@ public class PlayerView : MonoBehaviour {
 	void Start () 
 	{
 		_rb = GetComponent <Rigidbody>();
+		DS = GameObject.FindGameObjectWithTag ("DataScoreTag").GetComponent <DataScore> ();
 		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
-		
+		SpawnParticule = GameObject.FindGameObjectWithTag ("PuntoCalienteManagerTag").GetComponent <Transform>();
 	}
 	
 	
@@ -50,8 +53,9 @@ public class PlayerView : MonoBehaviour {
 	{
 		if(obj.gameObject.tag=="AreaScore")
 		{
+			DS.ItsFinishScoreInGame = true;
 			_rb.useGravity = true;
-			SceneManager.LoadScene ("GameOver");
+			Instantiate(DeadParticule,SpawnParticule.position,SpawnParticule.rotation);
 		}
 	}
 }
