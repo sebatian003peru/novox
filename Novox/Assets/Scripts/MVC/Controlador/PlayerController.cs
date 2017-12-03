@@ -13,6 +13,7 @@ public class PlayerController : PlayerData {
     public bool Active;
     public float TimeOut;
     public Vector3 vi = new Vector3(0f, 0f, 0f);
+    PlayerView VW;
     public Rigidbody rb ;//= GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody> ();
     
 
@@ -53,6 +54,9 @@ public class PlayerController : PlayerData {
                 {
                     if (touch.phase == TouchPhase.Ended)
                     {
+                        VW.SFXID =0;
+			            VW.AudioMan.Play();
+
                         if (Input.GetTouch(0).deltaPosition.x < 0.5f)
                         {
                             rb.AddForce(Vector3.back * MaxSpeed);
@@ -99,6 +103,9 @@ public class PlayerController : PlayerData {
                 {
                         if (touch.phase == TouchPhase.Ended)
                     {
+                         VW.SFXID =0;
+			             VW.AudioMan.Play();
+                         
                         if (Input.GetTouch(0).deltaPosition.x < 0.65f)
                         {
                             rb.AddForce(Vector3.forward * MaxSpeed);

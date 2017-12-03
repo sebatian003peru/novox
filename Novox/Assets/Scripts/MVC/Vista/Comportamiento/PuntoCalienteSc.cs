@@ -18,6 +18,7 @@ public class PuntoCalienteSc : MonoBehaviour {
 	public Transform PlayerT;
 	ScoreManagerSc SCM;
 	PuntoCalienteManager PCM;
+	PlayerView VW;
 	public float Dead;
 
 	void Start()
@@ -67,6 +68,8 @@ public class PuntoCalienteSc : MonoBehaviour {
 		if(obj.gameObject.tag =="Player")
 		{
 			Dead += Time.deltaTime;
+			VW.SFXID =1;
+			VW.AudioMan.Play();
 		}
 	}
 	void OnTriggerExit (Collider obj)

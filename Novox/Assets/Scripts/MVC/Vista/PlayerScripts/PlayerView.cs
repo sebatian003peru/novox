@@ -14,6 +14,9 @@ public class PlayerView : MonoBehaviour {
 	private Rigidbody _rb;
 	private ScoreManagerSc SCM;
 	private DataScore DS;
+	public AudioSource AudioMan;
+	public AudioClip[] SFX;
+	public int SFXID;
 	[SerializeField]
 	public ModifiersView MDV;
 	[SerializeField]
@@ -22,8 +25,11 @@ public class PlayerView : MonoBehaviour {
 	{
 		_rb = GetComponent <Rigidbody>();
 		DS = GameObject.FindGameObjectWithTag ("DataScoreTag").GetComponent <DataScore> ();
+		AudioMan = GetComponent<AudioSource>();
+		AudioMan.clip=SFX[SFXID];
 		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
 		SpawnParticule = GameObject.FindGameObjectWithTag ("PuntoCalienteManagerTag").GetComponent <Transform>();
+		
 	}
 	
 	
