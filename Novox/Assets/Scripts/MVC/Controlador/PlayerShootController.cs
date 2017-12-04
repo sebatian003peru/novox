@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
-public class PlayerShootController : PlayerShootManager//,IBeginDragHandler, IDragHandler, IEndDragHandle
+public class PlayerShootController : PlayerShootManager,IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [HideInInspector]
     public Vector3 currentPosition;
@@ -22,27 +22,28 @@ public class PlayerShootController : PlayerShootManager//,IBeginDragHandler, IDr
     float rotationZ;
     float sensitivityZ = 2;
 
-    // public void OnBeginDrag(PointerEventData eventData)
-    //{
-    //          offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
-    //                                                                         Input.mousePosition.y, screenPoint.z));
-    //    Cursor.visible = false;
-    //    //Debug.Log(offset);
-    //}
-//
-    //public void OnDrag(PointerEventData eventData)
-    //{
-    //     Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-    //    currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + offset;
-//
-    //    transform.position = currentPosition;
-    //}
-//
-    //public void OnEndDrag(PointerEventData eventData)
-    //{
-    //     Cursor.visible = true;
-    //    SS.MakeShot(SS.startPower);
-    //}
+     public void OnBeginDrag(PointerEventData eventData)
+    {
+              offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
+                                                                             Input.mousePosition.y, screenPoint.z));
+        Cursor.visible = false;
+        //Debug.Log(offset);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+         Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+        currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + offset;
+
+        transform.position = currentPosition;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+
+        Cursor.visible = true;
+        SS.MakeShot(SS.startPower);
+    }
 
     void Start()
     {
@@ -54,30 +55,30 @@ public class PlayerShootController : PlayerShootManager//,IBeginDragHandler, IDr
     void Update()
     {
         LockedRotation();
+    }
+      
+   
+   void OnMouseDown()
+   {
+       offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
+                                                                            Input.mousePosition.y, screenPoint.z));
+       Cursor.visible = false;
+       //Debug.Log(offset);
+   }
+   void OnMouseDrag()
+   {
+       Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+       currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + offset;
+       transform.position = currentPosition;
        
-    }
-    void OnMouseDown()
-    {
-        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
-                                                                             Input.mousePosition.y, screenPoint.z));
-        Cursor.visible = false;
-        //Debug.Log(offset);
-    }
-    void OnMouseDrag()
-    {
-        Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-        currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + offset;
+   }
+   void OnMouseUp()
+   {
+       Cursor.visible = true;
+       SS.MakeShot(SS.startPower);       
+   }
 
-        transform.position = currentPosition;
-        
-    }
-    void OnMouseUp()
-    {
-        Cursor.visible = true;
-        SS.MakeShot(SS.startPower);       
-    }
-
-       void LockedRotation()
+      void LockedRotation()
     {
         rotationZ += Input.GetAxis("Mouse ScrollWheel") * sensitivityZ * 10;
         rotationZ = Mathf.Clamp(rotationZ, -30.0f, 30.0f);
@@ -85,3 +86,4 @@ public class PlayerShootController : PlayerShootManager//,IBeginDragHandler, IDr
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, -rotationZ);
     }
 }
+

@@ -97,7 +97,7 @@ public class ModifierController : ModifiersData {
         _NoSpeed=70;
         _MaxSpeed=70;
         _moveForce =70;
-        _delay=70;
+        _delay=0;
         CubeRD.color = Color.red;
         Debug.Log("Red Effect triggered");
      }
@@ -121,7 +121,7 @@ public class ModifierController : ModifiersData {
         _NoSpeed= 100;
         _MaxSpeed= 100;
         _moveForce = 100;
-        _delay=0.5f;
+        _delay=0f;
         CubeRD.color = Color.yellow;
         Debug.Log("Yellow Effect triggered");
     }

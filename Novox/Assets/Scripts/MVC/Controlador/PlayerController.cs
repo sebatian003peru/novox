@@ -107,25 +107,25 @@ public class PlayerController : PlayerData {
                          VW.SFXID =0;
 			             VW.AudioMan.Play();
                          
-                        if (Input.GetTouch(0).deltaPosition.x < 0.65f)
+                        if (Input.GetTouch(0).deltaPosition.x < 0.5f)
                         {
                             rb.AddForce(Vector3.forward * MaxSpeed);
                             Active = false;    
                             Debug.Log("Swipe forward inverted");
 		                }
-		                if (Input.GetTouch(0).deltaPosition.x > 0.65f)
+		                if (Input.GetTouch(0).deltaPosition.x > 0.5f)
                         {  
 			                rb.AddForce(Vector3.back* MaxSpeed);
                             Active = false;
 			                Debug.Log("Swipe back inverted");
 		                }
-                        if (Input.GetTouch(0).deltaPosition.y <  0.65f) 
+                        if (Input.GetTouch(0).deltaPosition.y <  0.5f) 
                         {
                             rb.AddForce(Vector3.up * MaxSpeed);
                             Active = false;    
 		                	Debug.Log("Swipe up inverted");
 		                }
-                        if (Input.GetTouch(0).deltaPosition.y > 0.65f) 
+                        if (Input.GetTouch(0).deltaPosition.y > 0.5f) 
                         {
                             rb.AddForce (Vector3.down * MaxSpeed);
                             Active = false;

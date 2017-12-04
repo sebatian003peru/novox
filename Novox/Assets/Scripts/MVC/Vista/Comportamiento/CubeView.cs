@@ -21,9 +21,18 @@ public class CubeView : MonoBehaviour
     }
 	void Update ()
 	{
+
+        
+        if (_Speed>=30)
+        
+        {
+          _Speed = 30;  
+
+        }
 		
 		//cubeController.RandomRotation(_numberRandom,_timeStop,_termina,_rote);
 		ThisRotation();
+
 	}
 	void RotationCubePositionInicial()
     {
