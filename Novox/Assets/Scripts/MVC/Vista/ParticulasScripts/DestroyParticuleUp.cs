@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyParticule : MonoBehaviour {
+public class DestroyParticuleUp : MonoBehaviour {
 
-	private ParticleSystem thisParticuleSystem;
+	public ParticleSystem thisParticuleSystem;
 
 	void Start () 
 	{
 		thisParticuleSystem = GetComponent <ParticleSystem>();	
 	}
 	void Update () 
+	{
+		DetectLifePartucle();
+	}
+	public void DetectLifePartucle()
 	{
 		if(thisParticuleSystem.isPlaying)
 			return;

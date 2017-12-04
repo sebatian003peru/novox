@@ -14,9 +14,11 @@ public class PlayerView : MonoBehaviour {
 	private Rigidbody _rb;
 	private ScoreManagerSc SCM;
 	private DataScore DS;
+
 	public AudioSource AudioMan;
 	public AudioClip[] SFX;
 	public int SFXID;
+
 	[SerializeField]
 	public ModifiersView MDV;
 	[SerializeField]
@@ -26,7 +28,6 @@ public class PlayerView : MonoBehaviour {
 		_rb = GetComponent <Rigidbody>();
 		DS = GameObject.FindGameObjectWithTag ("DataScoreTag").GetComponent <DataScore> ();
 		AudioMan = GetComponent<AudioSource>();
-		AudioMan.clip=SFX[SFXID];
 		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
 		SpawnParticule = GameObject.FindGameObjectWithTag ("PuntoCalienteManagerTag").GetComponent <Transform>();
 		
@@ -35,8 +36,9 @@ public class PlayerView : MonoBehaviour {
 	
 	void Update () 
 	{
+		AudioMan.clip=SFX[SFXID];
 		playerController = new PlayerController (_InvertedControls_,_moveForce_,_NoSpeed_,_Fspeed_,_MaxSpeed_,_delay_,_rb);
-		playerController.Prueba();
+		playerController.ThisConfiguration();
 		playerController.Inputs();
 		playerController.FixedUpdate();
 		this._InvertedControls_ = MDV._InvertedControls;
@@ -45,6 +47,14 @@ public class PlayerView : MonoBehaviour {
 		this._Fspeed_ = MDV._Fspeed;
 		this._MaxSpeed_ = MDV._MaxSpeed;
 		this._delay_ = MDV._delay;
+	}
+	void OnTriggerEnter (Collider obj)
+	{
+		if(obj.gameObject.tag=="AroBonusTag")
+		{
+			SFXID = 1;
+			AudioMan.Play();
+		}
 	}
 	void OnTriggerStay (Collider obj)
 	{
@@ -57,6 +67,12 @@ public class PlayerView : MonoBehaviour {
 
 	void OnTriggerExit (Collider obj)
 	{
+		
+		if(obj.gameObject.tag=="PuntoCalienteTag")
+		{
+			SFXID = 5;
+			AudioMan.Play();
+		}
 		if(obj.gameObject.tag=="AreaScore")
 		{
 			DS.ItsFinishScoreInGame = true;

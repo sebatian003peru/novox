@@ -13,13 +13,17 @@ public class MenuManagerSc : MonoBehaviour
 	{
 		SceneManager.LoadScene ("Creditos");
 	}
-	public void Exit1 ()
+	public void Exit ()
 	{
 		Application.Quit();
 	}
-	public void Exit2 ()
+	public void Exit1 ()
 	{
 		SceneManager.LoadScene ("MainMenu");
+	}
+	public void Game2 ()
+	{
+		SceneManager.LoadScene ("scene1");
 	}
 	public void Tutorial ()
 	{

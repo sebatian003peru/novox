@@ -10,13 +10,13 @@ public class BonusDead: MonoBehaviour {
 	private GameObject maestro;
 	private ScoreManagerSc SCM;
 	private float dead;
-	PrototipeSpawnBonus SB;
+	AroBonusManagerSc SB;
 	
 
 	void Start () 
 	{
-		SpawnParticule = GameObject.FindGameObjectWithTag ("PuntoCalienteManagerTag").GetComponent <Transform>();
-		SB = GameObject.FindGameObjectWithTag ("AroBonusManegerTag").GetComponent <PrototipeSpawnBonus> ();
+		SpawnParticule = GameObject.FindGameObjectWithTag ("AroManagerTag").GetComponent <Transform>();
+		SB = GameObject.FindGameObjectWithTag ("AroManagerTag").GetComponent <AroBonusManagerSc> ();
 		maestro=GameObject.FindGameObjectWithTag ("CubeTag");
 		SCM = GameObject.FindGameObjectWithTag ("ScoreManagerTag").GetComponent <ScoreManagerSc> ();
 		transform.SetParent(maestro.transform);

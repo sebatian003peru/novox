@@ -32,7 +32,7 @@ public class PuntoCalienteSc : MonoBehaviour {
 
 	void Update()
 	{
-		if(Dead >= 5.2f)
+		if(Dead >= 3f)
 		{
 			PCM.Go_CoolDown = true;
 			SCM.ScoreCount +=6;
@@ -68,8 +68,6 @@ public class PuntoCalienteSc : MonoBehaviour {
 		if(obj.gameObject.tag =="Player")
 		{
 			Dead += Time.deltaTime;
-			VW.SFXID =1;
-			VW.AudioMan.Play();
 		}
 	}
 	void OnTriggerExit (Collider obj)

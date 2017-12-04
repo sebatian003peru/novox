@@ -16,6 +16,7 @@ public class PlayerController : PlayerData {
     PlayerView VW;
     public Rigidbody rb ;//= GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody> ();
     
+    
 
     public PlayerController (bool InvertedControls_,float moveForce_,float NoSpeed_,float Fspeed_,float MaxSpeed_,float delay_ ,Rigidbody _Rb)
     {
@@ -28,7 +29,7 @@ public class PlayerController : PlayerData {
         this.rb = _Rb;
     }
 
-    public void Prueba ()
+    public void ThisConfiguration ()
     {
         this.InvertedControls = _InvertedControls_;
         this.moveForce = _moveForce_;
@@ -41,7 +42,7 @@ public class PlayerController : PlayerData {
 
     public void Inputs ()
     {
-        
+        VW = GameObject.FindGameObjectWithTag ("Player").GetComponent <PlayerView> ();
         if(Input.touchCount > 0)
         {
             int i = 0;
@@ -54,7 +55,7 @@ public class PlayerController : PlayerData {
                 {
                     if (touch.phase == TouchPhase.Ended)
                     {
-                        VW.SFXID =0;
+                        VW.SFXID = 0;
 			            VW.AudioMan.Play();
 
                         if (Input.GetTouch(0).deltaPosition.x < 0.5f)

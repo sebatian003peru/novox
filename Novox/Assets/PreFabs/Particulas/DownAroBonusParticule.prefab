@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4585761708085818}
   - component: {fileID: 198388454579427666}
   - component: {fileID: 199328147471523468}
-  - component: {fileID: 114868623093766436}
+  - component: {fileID: 114790325616120962}
   m_Layer: 0
   m_Name: DownAroBonusParticule
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114868623093766436
+--- !u!114 &114790325616120962
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -50,9 +50,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1941590220304330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8e1177f7340f0545baa4db0fdf6dec4, type: 3}
+  m_Script: {fileID: 11500000, guid: ef2ae4aef769d6e439e73bdeb105b26d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisParticuleSystem: {fileID: 0}
 --- !u!198 &198388454579427666
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -112,7 +113,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 80564587
+  randomSeed: 1154761462
   InitialModule:
     serializedVersion: 3
     enabled: 1

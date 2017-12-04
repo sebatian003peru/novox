@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrototipeSpawnBonus: MonoBehaviour{
+public class AroBonusManagerSc: MonoBehaviour{
 
 	public Transform[] SpawnPoints;
 	public GameObject AroBonus01;
