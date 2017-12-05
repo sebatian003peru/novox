@@ -6,16 +6,17 @@ using UnityEngine.UI;
 public class EffectTextManager : MonoBehaviour {
 
 	public Text Efecttxt;
-	ModifierController MC;
 	public bool Fade;
 	float alpha;
 
+	private ModifiersView MV;
+
 	void Start()
 	{
+		MV = GameObject.FindGameObjectWithTag ("Player").GetComponent <ModifiersView> ();
 		alpha=0f;
 		Efecttxt.color = new Color(0f,0f,0f,alpha);
 		Fade=false;
-
 	}
 	void Update () 
 	{
@@ -30,37 +31,37 @@ public class EffectTextManager : MonoBehaviour {
 			Fade=false;
 		}
 
-		if (MC.Selected==1)
+		if (MV.modifierController.Selected==1)
 		{
-			Efecttxt.text="Red Effect Activated"+"Extra Weight";
+			Efecttxt.text="Extra Weight";
 			Efecttxt.color = Color.red;
 			Fade=true;
 		}
 
-		if (MC.Selected==2)
+		if (MV.modifierController.Selected==2)
 		{
-			Efecttxt.text="Green Effect Activated"+"Extra Speed";
+			Efecttxt.text="Extra Speed";
 			Efecttxt.color = Color.green;
 			Fade=true;
 		}
-		if (MC.Selected==3)
+		if (MV.modifierController.Selected==3)
 		{
-			Efecttxt.text="Yellow Effect Activated"+"Delayed Controls";
+			Efecttxt.text="Delayed Controls";
 			Efecttxt.color = Color.yellow;
 			Fade=true;
 		}
 
-		if (MC.Selected==4)
+		if (MV.modifierController.Selected==4)
 		{
-			Efecttxt.text="Blue Effect Activated"+"Inverted Controls";
+			Efecttxt.text="Inverted Controls";
 			Efecttxt.color = Color.blue;
 			Fade=true;
 		}
 
-		if (MC.Selected==5)
+		if (MV.modifierController.ActivatedCooldown==true)
 		{
-			Efecttxt.text="Blue Effect Activated"+"Inverted Controls";
-			Efecttxt.color = Color.black;
+			Efecttxt.text="Normal";
+			Efecttxt.color = Color.white;
 			Fade=true;
 		}
 	

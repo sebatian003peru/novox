@@ -13,7 +13,7 @@ public class ModifierController : ModifiersData {
 	[SerializeField]
     private float Cooldown = 5f;
     [SerializeField]
-    private float Duration = 5f;
+    public float Duration = 5f;
     PlayerView pw;
     public AudioClip ModifierSFX;
 

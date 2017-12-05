@@ -13,7 +13,7 @@ public class ModifiersView : MonoBehaviour
 	public GameObject _Cube;
 	Material _CubeRD;
 	[SerializeField]
-	ModifierController modifierController;
+	public ModifierController modifierController;
 	void Start ()
 	{
 		_CubeRD= _Cube.GetComponent<Renderer>().material;
