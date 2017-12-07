@@ -19,8 +19,8 @@ public class MyScoreFinish : MonoBehaviour {
 		_dataScore = GameObject.FindGameObjectWithTag ("DataScoreTag").GetComponent <DataScore>();
 		_ScoreCount = _dataScore.Score_;
 		_HighScoreCount = _dataScore.HightScore_;
-		_Scoretxt.text = "Score: " + Mathf.Round(_ScoreCount);
-		_HighScoretxt.text = "HighScore: " + Mathf.Round(_HighScoreCount);
+		_Scoretxt.text = "Score : " + Mathf.Round(_ScoreCount);
+		_HighScoretxt.text = " : " + Mathf.Round(_HighScoreCount);
 	}
 	public void TryAgain ()
 	{

@@ -21,8 +21,7 @@ public class PlayerShootData : PlayerShootManager {
 
     void Start()
     {
-        //start position
-        aimer.transform.position = new Vector3(1, 1, 0);
+
         //init
         //arrays
         anchors = new Transform[2];

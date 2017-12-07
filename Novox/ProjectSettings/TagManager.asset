@@ -15,6 +15,7 @@ TagManager:
   - PuntoCalienteManagerTag
   - AroManagerTag
   - AroBonusTag
+  - WinGame2
   layers:
   - Default
   - TransparentFX

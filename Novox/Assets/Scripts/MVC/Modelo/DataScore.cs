@@ -5,7 +5,7 @@ using UnityEngine;
 public class DataScore : MonoBehaviour {
 
 	public static DataScore groupSc;
-	ScoreManagerSc ScM;
+	public ScoreManagerSc ScM;
 	public float Score_;
 	public float HightScore_;
 	public bool ItsFinishScoreInGame;
